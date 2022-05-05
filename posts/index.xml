@@ -1,0 +1,720 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Abhigyan Kishor</title>
+        <link>https://example.com/posts/</link>
+        <description>Recent content in Posts on Abhigyan Kishor</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Thu, 05 May 2022 15:39:24 +0300</lastBuildDate>
+        <atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Leetcode 225</title>
+            <link>https://example.com/posts/2022/05/leetcode-225/</link>
+            <pubDate>Thu, 05 May 2022 15:39:24 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/05/leetcode-225/</guid>
+            <description>Leetcode 255: Implementing Stacks Using Queues Head on over here to try the problem for yourself.
+The solution talks about using 2 queues, which frankly I don&amp;rsquo;t understand :&amp;rsquo;). I used a single queue to implement this problem.
+Algorithm The goal is to implement a stack using the basic queue features provided such as push(), peek() and pop(). The easiest way to implement this is by inserting elements in reverse order.</description>
+            <content type="html"><![CDATA[<h1 id="leetcode-255-implementing-stacks-using-queues">Leetcode 255: Implementing Stacks Using Queues</h1>
+<p>Head on over <a href="https://leetcode.com/problems/implementing-stacks-using-queues">here</a> to try the problem for yourself.</p>
+<p>The solution talks about using 2 queues, which frankly I don&rsquo;t understand :&rsquo;). I used a single queue to implement this problem.</p>
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to implement a stack using the basic queue features provided such as <code>push()</code>, <code>peek()</code> and <code>pop()</code>. The easiest way to implement this is by inserting elements in reverse order. Then the queue will pop the elements like a stack.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyStack</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Queue<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> q<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyStack</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    q <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    q<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      q<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">pop</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">top</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">peek</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">empty</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Leetcode 1769</title>
+            <link>https://example.com/posts/2022/05/leetcode-1769/</link>
+            <pubDate>Wed, 04 May 2022 14:27:17 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/05/leetcode-1769/</guid>
+            <description>Leetcode 1769: Max Number of K-sum Pairs Head on over here to try the problem for yourself.
+This is a varaition of the famous two-sum problem that we have all struggled with :)
+Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:</description>
+            <content type="html"><![CDATA[<h1 id="leetcode-1769-max-number-of-k-sum-pairs">Leetcode 1769: Max Number of K-sum Pairs</h1>
+<p>Head on over <a href="https://leetcode.com/problems/max-number-of-k-sum-pairs">here</a> to try the problem for yourself.</p>
+<p>This is a varaition of the famous <strong>two-sum</strong> problem that we have all struggled with :)</p>
+<h4 id="algorithm--code">Algorithm &amp; Code</h4>
+<h5 id="the-slower-on">The slower O(n)</h5>
+<p>The goal is the count unique pairs of integers that sum up to given <code>k</code>. For this, we create a hashmap that stores unique values of the integers. Then we go over the <code>keySet()</code> and update the count according to the following rules:</p>
+<ul>
+<li>if <code>key = k/2</code> then <code>count += occurence(key)/2</code></li>
+<li>if map has <code>k - key</code> then <code>count += Min(occurence(key), occurence(k - key))</code>.</li>
+</ul>
+<p>I keep track of the visited elements using a HashSet <code>visited</code>. The case of <code>key == k/2</code> is only raised when k, so I avoid any ugly conversions from double to Integer.</p>
+<h5 id="slow-code-">Slow code :(</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maxOperations</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> nums<span style="color:#f92672">[],</span> <span style="color:#66d9ef">int</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        HashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        HashSet<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> visited <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]))</span> 
+</span></span><span style="display:flex;"><span>              map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Integer key <span style="color:#f92672">:</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">keySet</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%d : %d\n&#34;</span><span style="color:#f92672">,</span> key<span style="color:#f92672">,</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>key<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Integer key <span style="color:#f92672">:</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">keySet</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>visited<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>key<span style="color:#f92672">))</span> <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>k <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0 <span style="color:#f92672">&amp;&amp;</span> key <span style="color:#f92672">==</span> k<span style="color:#f92672">/</span>2<span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span>                  count <span style="color:#f92672">+=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>key<span style="color:#f92672">)/</span>2<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> key<span style="color:#f92672">))</span> 
+</span></span><span style="display:flex;"><span>                  count <span style="color:#f92672">+=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">min</span><span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>key<span style="color:#f92672">),</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> key<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>                visited<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>As you can see, we explore the array first. Then we proceed with the counting. Fortunately, some very smart people in the comments came up with a way to do both simultaneously, with the use of <code>HashMap.getOrDefault()</code>.</p>
+<h5 id="the-faster-on">The faster O(n)</h5>
+<p>This code updates the count incrementally, rather than at once. As a result, it is able to populate the explored hashmap and count simultaneously. It checks if the pair of the element exists in the hashmap. On this basis it executes the following steps:</p>
+<ul>
+<li><code>if((k-key) in map and occurence(k-key) &gt; 0)</code> then remove an occurence and update count</li>
+<li>else just add a new element or update its previous value</li>
+</ul>
+<h5 id="the-faster-code-">The faster code :)</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maxOperations</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        HashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">&amp;&amp;</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                count<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>                map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#75715e">// getOrDefault makes this part a lot less ugly :)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrDefault</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Leetcode 581</title>
+            <link>https://example.com/posts/2022/05/leetcode-581/</link>
+            <pubDate>Tue, 03 May 2022 17:10:04 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/05/leetcode-581/</guid>
+            <description>Leetcode 581: Shortest Unsorted Continuous Subarray Head on over here to try the problem for yourself.
+I solved this problem using a two-pointer method.
+Algorithm The goal is to find the points where the array becomes unsorted. We use two loops, one to find the end of the unsorted sub-array and another to find the start of the unsorted sub-array. start = end = -1 as a way to check if they were updated or not during the loops.</description>
+            <content type="html"><![CDATA[<h1 id="leetcode-581-shortest-unsorted-continuous-subarray">Leetcode 581: Shortest Unsorted Continuous Subarray</h1>
+<p>Head on over <a href="https://leetcode.com/problems/shortest-unsorted-continuous-subarray">here</a> to try the problem for yourself.</p>
+<p>I solved this problem using a two-pointer method.</p>
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to find the points where the array becomes unsorted. We use two loops, one to find the end of the unsorted sub-array and another to find the start of the unsorted sub-array. <code>start = end = -1</code> as a way to check if they were updated or not during the loops. If they were not, then array is sorted and we <code>return 0</code>. Else we return <code>end - start + 1</code>.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>pbulic <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">findUnsortedSubarray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> start <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> end <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> prev <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//finding end
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// try to find the index of next 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// smallest number from prev
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">[</span>prev<span style="color:#f92672">])</span> end <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> prev <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> prev <span style="color:#f92672">=</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//finding start
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// try to find the index of nex
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// biggest number from prev
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;</span> nums<span style="color:#f92672">[</span>prev<span style="color:#f92672">])</span> start <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> prev <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>start <span style="color:#f92672">&lt;</span> 0 <span style="color:#f92672">&amp;&amp;</span> end <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> end <span style="color:#f92672">-</span> start <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h4 id="testcases">Testcases</h4>
+<pre tabindex="0"><code>[1,3,2,2,2]
+start = 1
+end = 4
+</code></pre><p>An odd testcase that shows the strage loop working. In this case, the whole right side of the array is unsorted. For finding <code>end</code>, we would have the following run:</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>prev</th>
+<th>end</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Finding <code>start</code> happens simlarly and we get a good result.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Leetcode 905</title>
+            <link>https://example.com/posts/2022/05/leetcode-905/</link>
+            <pubDate>Mon, 02 May 2022 11:36:29 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/05/leetcode-905/</guid>
+            <description>Leetcode 905: Sort Array by Parity Head on over here to try the problem for yourself.
+I attempted a two-pointer approach to try and solve it.
+Algorithm The goal is to try to return the parity array in one pass. For this reason, I create a new array result[] and two pointers, evenPtr, pointing to the start of result[] and oddPtr, pointing to the end of result[]. Now I loop over the initial array.</description>
+            <content type="html"><![CDATA[<h1 id="leetcode-905-sort-array-by-parity">Leetcode 905: Sort Array by Parity</h1>
+<p>Head on over <a href="https://leetcode.com/problems/sort-array-by-parity/">here</a> to try the problem for yourself.</p>
+<p>I attempted a <strong>two-pointer</strong> approach to try and solve it.</p>
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to try to return the parity array in one pass. For this reason, I create a new array <code>result[]</code> and two pointers, <code>evenPtr</code>, pointing to the start of <code>result[]</code> and <code>oddPtr</code>, pointing to the end of <code>result[]</code>. Now I loop over the initial array. If the element encountered is even, it is pushed at <code>evenPtr</code>, and vice versa. The pointers are updated for the next iteration.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">sortByParity</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> evenPtr <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> oddPtr <span style="color:#f92672">=</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> result<span style="color:#f92672">[</span>evenPtr<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> result<span style="color:#f92672">[</span>oddPtr<span style="color:#f92672">--]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Leetcode 844</title>
+            <link>https://example.com/posts/2022/05/leetcode-844/</link>
+            <pubDate>Sun, 01 May 2022 17:55:32 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/05/leetcode-844/</guid>
+            <description>Leetcode 844: Backspace String Compare Head on over here to try the problem for yourself.
+There are a few ways discussed in the solutions. I will try to explain the two-pointer method.
+Algorithm The goal is to try to build the resultant string in one pass. For this reason, we will iterate over the string backwards. If we encounter #, we simply skip the first valid character that follows. Ofcourse, the caveats are considering more backspaces (#) than actual words, in which case we simply get an empty string.</description>
+            <content type="html"><![CDATA[<h1 id="leetcode-844-backspace-string-compare">Leetcode 844: Backspace String Compare</h1>
+<p>Head on over <a href="https://leetcode.com/problems/backspace-string-compare/">here</a> to try the problem for yourself.</p>
+<p>There are a few ways discussed in the solutions. I will try to explain the two-pointer method.</p>
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to try to build the resultant string in one pass. For this reason, we will iterate over the string <strong>backwards</strong>. If we encounter <code>#</code>, we simply skip the first valid character that follows. Ofcourse, the <strong>caveats</strong> are considering more backspaces (<code>#</code>) than actual words, in which case we simply get an empty string. Further, we need a way to handle a series of backspaces and skip an equal number of valid characters.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">backspaceCompare</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">,</span> String t<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> skip <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> <span style="color:#75715e">// variable to keep track of skips
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> <span style="color:#75715e">// iterates over the string in reverse
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  StringBuilder s1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span> <span style="color:#75715e">// stores result of s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  StringBuilder s2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span> <span style="color:#75715e">// stores result of t
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> c<span style="color:#f92672">;</span> <span style="color:#75715e">// temporarily stores the current character
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>i <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    c <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;#&#39;</span><span style="color:#f92672">)</span> skip<span style="color:#f92672">++;</span> <span style="color:#75715e">// increment skip to keep track of number of skips
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>skip <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> skip<span style="color:#f92672">--;</span> <span style="color:#75715e">// encouters valid character but skip &gt; 0 so decrement skip
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">else</span> s1<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>c<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    i<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// reset
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  skip <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  i <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>i <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    c <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;#&#39;</span><span style="color:#f92672">)</span> skip<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>skip <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> skip<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span> s2<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>c<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    i<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// I am comparing the built strings to each other, in reverse :P
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>s1<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">compareTo</span><span style="color:#f92672">(</span>s2<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">())</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Aloo Gobi</title>
+            <link>https://example.com/posts/2022/04/aloo-gobi/</link>
+            <pubDate>Sat, 30 Apr 2022 19:46:10 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/04/aloo-gobi/</guid>
+            <description>How to cook - Aloo Gobi Sabzi (dry) Ingredients:    Item Quantity Processing     Cauliflower one head cut small floretd &amp;amp; rinse   Potato 1-2 medium sized cut into cubes and rinse   Garlic 1 large/ 2 small clove crushed   Cumin 1 tsp    Hing 1/4 tsp    Turmeric (haldi) 1/2 tsp    Chilli powder 1/4 tsp    Coriander powder 1 tsp    Oil (sarson) 1-2 serving spoon     Procedure:   Put the pan/kadai on the fire.</description>
+            <content type="html"><![CDATA[<h1 id="how-to-cook---aloo-gobi-sabzi-dry">How to cook - Aloo Gobi Sabzi (dry)</h1>
+<h4 id="ingredients">Ingredients:</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Processing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cauliflower</td>
+<td>one head</td>
+<td>cut small floretd &amp; rinse</td>
+</tr>
+<tr>
+<td>Potato</td>
+<td>1-2 <!-- raw HTML omitted --> medium sized</td>
+<td>cut into cubes and rinse</td>
+</tr>
+<tr>
+<td>Garlic</td>
+<td>1 large/ 2 small clove</td>
+<td>crushed</td>
+</tr>
+<tr>
+<td>Cumin</td>
+<td>1 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Hing</td>
+<td>1/4 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Turmeric (haldi)</td>
+<td>1/2 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Chilli powder</td>
+<td>1/4 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Coriander powder</td>
+<td>1 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Oil (sarson)</td>
+<td>1-2 <!-- raw HTML omitted --> serving spoon</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="procedure">Procedure:</h4>
+<ol>
+<li>
+<p>Put the pan/kadai on the fire. [<em>deeper round bottom pan preferred</em>] Put in 2 serving spoon of oil and turn the flame to high.</p>
+</li>
+<li>
+<p>Add in the cumin once the oil is hot and let it sputter. Then add hing and cauliflower florets. [<em>we shallow fry the gobi first with oil so it doesn’t taste like gas</em>]. Stir on high flame till the raw smell of cauliflower is gone and the edges have started to brown. This should take anywhere between 5-10 min depending on type and quantity of cauliflower. Once done reduce flame to low and take the cauliflower out onto a plate.</p>
+</li>
+<li>
+<p>Now in the empty pan add 1 serving spoon of oil, and turn flame to high. Add in the potatoes and sauté till golden brown and semi cooked.</p>
+</li>
+<li>
+<p>Add back the cauliflowers to the pan and stir on high heat for 2 min. Then turn the flame to low and let the vegetables cook on low for about 5 min.</p>
+</li>
+<li>
+<p>In the meantime, crush the garlic and in the same vessel add haldi, mirchi, dhaniya and salt. Then add water and create a masala mixture.</p>
+</li>
+<li>
+<p>At this point the sabzi should have been cooking on low flame for about 5 min with intermittent stirring. Add in the masala mixture and continue to cook on low flame till the water reduces almost completely, and the raw smell of garlic is gone. [<em>depending on gobi type, you can cover during this step to make sure the gobi and aloo soften</em>]</p>
+</li>
+<li>
+<p>Turn flame to high and stir rapidly. In this step you are trying to sear the masala and the veggies. Stir till you feel sticking at the bottom of the pan. Then add enough water to just cover the vegetables. Let it simmer on high flame.</p>
+</li>
+<li>
+<p>Once the water starts to reduce, observe your veggies, if still not cooked either cover and cook on low flame, or add more water and cook on high flame.</p>
+</li>
+<li>
+<p>If the vegetables have softened to you liking continue to cook on high flame till water is almost gone. At this point add in the fresh coriander leaves.</p>
+</li>
+<li>
+<p>Stir and turn heat off when water is gone.</p>
+</li>
+</ol>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Seam Aloo</title>
+            <link>https://example.com/posts/2022/04/seam-aloo/</link>
+            <pubDate>Sat, 30 Apr 2022 19:46:10 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/04/seam-aloo/</guid>
+            <description>How to cook - Seam Aloo Sabzi Ingredients:    Item Quantity Processing     Seam 250g cut 2in pieces and rinse   Potato 1-2 medium sized cut into cubes and rinse   Tomato 1 medium sized    Garlic 1 large/ 2 small clove crushed   Cumin 1 tsp    Hing 1/4 tsp    Turmeric (haldi) 1/2 tsp    Chilli powder 1/4 tsp    Coriander powder 1 tsp    Oil (sarson) 1-2 serving spoon    Amchur Powder 1tsp    Sarson 1 1/2 tsp     Procedure:   Cut the tomato into quarters and put it in the microwave for 4-5 min.</description>
+            <content type="html"><![CDATA[<h1 id="how-to-cook---seam-aloo-sabzi">How to cook - Seam Aloo Sabzi</h1>
+<h4 id="ingredients">Ingredients:</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Processing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seam</td>
+<td>250g</td>
+<td>cut 2in pieces and rinse</td>
+</tr>
+<tr>
+<td>Potato</td>
+<td>1-2 <!-- raw HTML omitted --> medium sized</td>
+<td>cut into cubes and rinse</td>
+</tr>
+<tr>
+<td>Tomato</td>
+<td>1 medium sized</td>
+<td></td>
+</tr>
+<tr>
+<td>Garlic</td>
+<td>1 large/ 2 small clove</td>
+<td>crushed</td>
+</tr>
+<tr>
+<td>Cumin</td>
+<td>1 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Hing</td>
+<td>1/4 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Turmeric (haldi)</td>
+<td>1/2 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Chilli powder</td>
+<td>1/4 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Coriander powder</td>
+<td>1 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Oil (sarson)</td>
+<td>1-2 <!-- raw HTML omitted --> serving spoon</td>
+<td></td>
+</tr>
+<tr>
+<td>Amchur Powder</td>
+<td>1tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Sarson</td>
+<td>1 1/2 tsp</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="procedure">Procedure:</h4>
+<ol>
+<li>
+<p>Cut the tomato into quarters and put it in the microwave for 4-5 min.</p>
+</li>
+<li>
+<p>Add oil to a pan/kadhai (rounder, deep bottomed pan preferred) and wait till it’s hot. Then add the cumin and let it splatter. Add hing and immediately add in the potatoes.
+[<em>all this is done while the pan is on high heat. Be careful of oil splatter. DO NOT put the aloo into cold oil. It will not cook and instead just harden and drink the oil.</em>]</p>
+</li>
+<li>
+<p>Let the potatoes cook on medium high heat, till browned. Then add in the seam and stir it till covered in oil evenly. Cook till the seam starts getting seared or sticking to the bottom of the pan. Then turn the flame to low. And let it cook for 5 more min.
+[<em>once again, the aim is to semi cook the potato. Depending on the type of potato you have cooking times may differ</em>].</p>
+</li>
+<li>
+<p>While the sabzi is on low flame, on the side crush the garlic, add haldi, mirchi, salt and dhaniya to a bowl and add some water to make a masala mix. Add this mix to the sabzi and stir. Let it keep cooking on low flame.</p>
+</li>
+<li>
+<p>Take the tomatoes out of the microwave, remove the skin and crush the pulp. Once all the water from the masala mix has nearly dried, and the raw smell of garlic has gone from the sabzi, add the mashed tomatoes to the pan. Stir it to mix and then cover the pan. Let it cook covered for about 10 min. Uncover intermittently to stir and make sure nothing has burned or stuck to the bottom of the pan.</p>
+</li>
+<li>
+<p>After about 10 min the tomatoes should be cooked through. Uncover the pan and cook on low flame uncovered for another 2-3 min. At this point check if the potatoes are cooked by breaking with your spatula. They should be almost fully cooked at this stage.</p>
+</li>
+<li>
+<p>Turn the flame high now and stir rapidly till the tomato/masala water starts to fully dry out/crisp up. Then add enough water that all the vegetable are half submerged. Let this cook on high flame.</p>
+</li>
+<li>
+<p>Once the water has almost completely reduced, check if the potatoes and seam are cooked soft. If not yet cooked can add more water and repeat till everything is cooked.</p>
+</li>
+</ol>
+<p>OPTIONAL
+9.  Then turn off heat. Taste your masala, and if more sourness is needed add and mix in amchur as required at this point.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Broccoli Mushroom Soup</title>
+            <link>https://example.com/posts/2022/04/broccoli-mushroom-soup/</link>
+            <pubDate>Thu, 28 Apr 2022 15:56:20 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/04/broccoli-mushroom-soup/</guid>
+            <description>How to cook - Broccoli &amp;amp; Mushroom soup Ingredients: Soup    Item Quantity Processing     Broccoli 1 head cut into florets   Mushroom 250g 1 can sliced   Onion 1 small diced   Garlic 2 cloves diced/sliced   Cumin 1 tsp    Salt 2 tsp    Pepper 1 tsp    Chili flakes 1/4 tsp    Milk 1 cup    Cream OR All-purpose flour 1 tbsp    Oil 2 serving spoon    Butter 1 knob     Croutons    Item Quantity Processing     Bread 10 slices cut into squares   Oil 2 serving spoon     Procedure: Soup  Take a wide, heavy bottomed pan, that distributes heat well.</description>
+            <content type="html"><![CDATA[<h1 id="how-to-cook---broccoli--mushroom-soup">How to cook - Broccoli &amp; Mushroom soup</h1>
+<h4 id="ingredients">Ingredients:</h4>
+<h5 id="soup"><em>Soup</em></h5>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Processing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broccoli</td>
+<td>1 head</td>
+<td>cut into florets</td>
+</tr>
+<tr>
+<td>Mushroom</td>
+<td>250g</td>
+<td>1 can sliced</td>
+</tr>
+<tr>
+<td>Onion</td>
+<td>1 small</td>
+<td>diced</td>
+</tr>
+<tr>
+<td>Garlic</td>
+<td>2 cloves</td>
+<td>diced/sliced</td>
+</tr>
+<tr>
+<td>Cumin</td>
+<td>1 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Salt</td>
+<td>2 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Pepper</td>
+<td>1 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Chili flakes</td>
+<td>1/4 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Milk</td>
+<td>1 cup</td>
+<td></td>
+</tr>
+<tr>
+<td>Cream <!-- raw HTML omitted --> OR All-purpose flour</td>
+<td>1 tbsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Oil</td>
+<td>2 serving spoon</td>
+<td></td>
+</tr>
+<tr>
+<td>Butter</td>
+<td>1 knob</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="croutons"><em>Croutons</em></h5>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Processing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bread</td>
+<td>10 slices</td>
+<td>cut into squares</td>
+</tr>
+<tr>
+<td>Oil</td>
+<td>2 serving spoon</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="procedure">Procedure:</h4>
+<h5 id="soup-1"><em>Soup</em></h5>
+<ol>
+<li>Take a wide, heavy bottomed pan, that distributes heat well.</li>
+<li>Add oil to the pan. Once hot (stick hand close to oil. It should feel warm), put in the cumin seeds. Let them sputter, then add garlic and sauté till garlic starts browning.</li>
+<li>Reduce flame a little and add the broccoli florets. BE CAREFUL OF SPLUTTERING OIL. Increase flame to hig. Sauté till broccoli sears.</li>
+<li>Add onions and mushroom, and stir till everything is cooked (about 5-10 min on high heat, or till mushrooms shrink).</li>
+<li>Reduce head, and add milk and cream. Let everything simmer for 2-3 minutes, then turn off flame.
+OR
+If using flor, take veggies out of pan. Add a knob of butter to pan, on low head. Add the flour and stir together. It should form a paste. Cook till raw smell of lour is gone (about 2-3 min), then slowly add the milk while whisking everything together to prevent clumps. Once combined, let sauce simmer for a minute and add veggies back into pan. Let everything cook for anotehr 1-2 minutes and then turn off the heat.</li>
+<li>Put everything in a blender and blend till smooth. Add water/salt/pepper as required.</li>
+</ol>
+<h5 id="croutons-1"><em>Croutons</em></h5>
+<ol>
+<li>Rinse out your pan. Add the oil and let it heat on a high flame. Once the oil is hot enough, bring flame to lowest.</li>
+<li>Add in the bread and mix till all the pieces are coated uniformly in the oil.</li>
+<li>Continue to stir on low to medium flame, till the bread is crisp.</li>
+</ol>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Aloo Beans</title>
+            <link>https://example.com/posts/2022/04/aloo-beans/</link>
+            <pubDate>Thu, 28 Apr 2022 14:26:38 +0300</pubDate>
+            
+            <guid>https://example.com/posts/2022/04/aloo-beans/</guid>
+            <description>How to cook - Aloo Beans Sabzi Ingredients:    Item Quantity Processing     Beans (runner/long) 250g cut and washed   Potato 1-2 medium sized cut and washed   Garlic 1 big clove crushed   Cumin 1 tsp    Hing 1/4 tsp    Turmeric (haldi) 1/2 tsp    Chilli powder 1/4 tsp    Coriander powder 1 tsp    Oil 1-2 serving spoon     Procedure:  Take a kadhai/round bottom pan.</description>
+            <content type="html"><![CDATA[<h1 id="how-to-cook---aloo-beans-sabzi">How to cook - Aloo Beans Sabzi</h1>
+<h4 id="ingredients">Ingredients:</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Processing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beans <!-- raw HTML omitted --> (runner/long)</td>
+<td>250g</td>
+<td>cut and washed</td>
+</tr>
+<tr>
+<td>Potato</td>
+<td>1-2 <!-- raw HTML omitted --> medium sized</td>
+<td>cut and washed</td>
+</tr>
+<tr>
+<td>Garlic</td>
+<td>1 big clove</td>
+<td>crushed</td>
+</tr>
+<tr>
+<td>Cumin</td>
+<td>1 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Hing</td>
+<td>1/4 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Turmeric (haldi)</td>
+<td>1/2 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Chilli powder</td>
+<td>1/4 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Coriander powder</td>
+<td>1 tsp</td>
+<td></td>
+</tr>
+<tr>
+<td>Oil</td>
+<td>1-2 <!-- raw HTML omitted --> serving spoon</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="procedure">Procedure:</h4>
+<ol>
+<li>Take a kadhai/round bottom pan. Add the oil and let it heat. once it&rsquo;s hot enough add the cumin and let it sputter. Then add hing.</li>
+<li>Add in the potatoes, and sauté on high flame till the potatoes start browning. [<em>Depending on type of potato, you may have to put on sim and cover and cook. the aim here is to semi cook the outer part of potato.</em>]</li>
+<li>Once the potatoes start browning, throw in the beans. Continue to sauté on high till beans start searing <strong>OR</strong> start sticking to the bottom of pan. then reduce heat and let it cook stirring every few minutes.</li>
+<li>While this cooks, crush the garlic. Add turmeric, salt, chili powder and coriander powder to the same bowl. Add some water and mix, then set aside.</li>
+<li>By this time most of the moisture in the pan will have dried. Add the masala mixture to the pan and mix well. Leave on sim and cover to cook as needed. [<em>The aim here is to cook till the beans and potatoes are cooked completely. Cover for short intervals and stir in between. We don&rsquo;t cover and just forget about the veggies, because then they taste watery. We want to use the steam to cook the veggies.</em>]</li>
+<li>Once everything is cooked, take off the lid and stir on high till all the water is gone.</li>
+<li>Turn of heat.</li>
+</ol>
+<p><em>If you want to add tomatoes to your sabzi, cut 1 tomato into quarters and precook in the microwave (~3 min). Take off the skins and mash it up. Add it to the sabzi after the masala in step 5, and cook as normal.</em></p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>
