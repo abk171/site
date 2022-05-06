@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 05 May 2022 15:39:24 +0300</lastBuildDate><atom:link href="https://ak1909552.github.io/site-stuff/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 May 2022 12:49:34 +0300</lastBuildDate><atom:link href="https://ak1909552.github.io/site-stuff/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 1209</title>
+      <link>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-1209/</link>
+      <pubDate>Fri, 06 May 2022 12:49:34 +0300</pubDate>
+      
+      <guid>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-1209/</guid>
+      <description>Leetcode 1209: Remove All Adjacent Duplicates in String II Head on over here to try to the problem for yourself.
+The problem requires a stack based solution.
+Algorithm The goal is the find the shortest string possible by removing k duplicated adjacent characters. A simple problem case is illustrated:
+k = 2 s = &amp;#34;abbac&amp;#34; the result must be c. Iteration 1: remove bb =&amp;gt; &amp;#34;aac&amp;#34; Iteration 2: remove aa =&amp;gt; &amp;#34;c&amp;#34; The hint points out that instead of maintaining the character count outside the stack, just pass in an object that stores the counter.</description>
+    </item>
+    
     <item>
       <title>Leetcode 225</title>
       <link>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-225/</link>
