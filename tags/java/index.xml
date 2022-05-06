@@ -14,7 +14,7 @@
       <pubDate>Fri, 06 May 2022 12:49:34 +0300</pubDate>
       
       <guid>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-1209/</guid>
-      <description>Leetcode 1209: Remove All Adjacent Duplicates in String II Head on over here to try to the problem for yourself.
+      <description>Remove All Adjacent Duplicates in String II Head on over here to try to the problem for yourself.
 The problem requires a stack based solution.
 Algorithm The goal is the find the shortest string possible by removing k duplicated adjacent characters. A simple problem case is illustrated:
 k = 2 s = &amp;#34;abbac&amp;#34; the result must be c. Iteration 1: remove bb =&amp;gt; &amp;#34;aac&amp;#34; Iteration 2: remove aa =&amp;gt; &amp;#34;c&amp;#34; The hint points out that instead of maintaining the character count outside the stack, just pass in an object that stores the counter.</description>
@@ -26,9 +26,9 @@ k = 2 s = &amp;#34;abbac&amp;#34; the result must be c. Iteration 1: remove bb =
       <pubDate>Thu, 05 May 2022 15:39:24 +0300</pubDate>
       
       <guid>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-225/</guid>
-      <description>Leetcode 255: Implementing Stacks Using Queues Head on over here to try the problem for yourself.
+      <description>Implementing Stacks Using Queues Head on over here to try the problem for yourself.
 The solution talks about using 2 queues, which frankly I don&amp;rsquo;t understand :&amp;rsquo;). I used a single queue to implement this problem.
-Algorithm The goal is to implement a stack using the basic queue features provided such as push(), peek() and pop(). The easiest way to implement this is by inserting elements in reverse order.</description>
+Algorithm The goal is to implement a stack using the basic queue features provided such as push(), peek() and pop(). The easiest way to implement this is by inserting elements in reverse order. Then the queue will pop the elements like a stack.</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@ Algorithm The goal is to implement a stack using the basic queue features provid
       <pubDate>Wed, 04 May 2022 14:27:17 +0300</pubDate>
       
       <guid>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-1769/</guid>
-      <description>Leetcode 1769: Max Number of K-sum Pairs Head on over here to try the problem for yourself.
+      <description>Max Number of K-sum Pairs Head on over here to try the problem for yourself.
 This is a varaition of the famous two-sum problem that we have all struggled with :)
 Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:</description>
     </item>
@@ -48,7 +48,7 @@ Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of i
       <pubDate>Tue, 03 May 2022 17:10:04 +0300</pubDate>
       
       <guid>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-581/</guid>
-      <description>Leetcode 581: Shortest Unsorted Continuous Subarray Head on over here to try the problem for yourself.
+      <description>Shortest Unsorted Continuous Subarray Head on over here to try the problem for yourself.
 I solved this problem using a two-pointer method.
 Algorithm The goal is to find the points where the array becomes unsorted. We use two loops, one to find the end of the unsorted sub-array and another to find the start of the unsorted sub-array. start = end = -1 as a way to check if they were updated or not during the loops.</description>
     </item>
@@ -59,7 +59,7 @@ Algorithm The goal is to find the points where the array becomes unsorted. We us
       <pubDate>Mon, 02 May 2022 11:36:29 +0300</pubDate>
       
       <guid>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-905/</guid>
-      <description>Leetcode 905: Sort Array by Parity Head on over here to try the problem for yourself.
+      <description>Sort Array by Parity Head on over here to try the problem for yourself.
 I attempted a two-pointer approach to try and solve it.
 Algorithm The goal is to try to return the parity array in one pass. For this reason, I create a new array result[] and two pointers, evenPtr, pointing to the start of result[] and oddPtr, pointing to the end of result[]. Now I loop over the initial array.</description>
     </item>
@@ -70,7 +70,7 @@ Algorithm The goal is to try to return the parity array in one pass. For this re
       <pubDate>Sun, 01 May 2022 17:55:32 +0300</pubDate>
       
       <guid>https://ak1909552.github.io/site-stuff/posts/2022/05/leetcode-844/</guid>
-      <description>Leetcode 844: Backspace String Compare Head on over here to try the problem for yourself.
+      <description>Backspace String Compare Head on over here to try the problem for yourself.
 There are a few ways discussed in the solutions. I will try to explain the two-pointer method.
 Algorithm The goal is to try to build the resultant string in one pass. For this reason, we will iterate over the string backwards. If we encounter #, we simply skip the first valid character that follows. Ofcourse, the caveats are considering more backspaces (#) than actual words, in which case we simply get an empty string.</description>
     </item>
