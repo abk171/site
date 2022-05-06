@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tutorial on Abhigyan Kishor</title>
-    <link>https://ak1909552.github.io/site-stuff/tags/tutorial/</link>
+    <link>www.abhigyankishor.ga/tags/tutorial/</link>
     <description>Recent content in tutorial on Abhigyan Kishor</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 06 May 2022 20:43:37 +0300</lastBuildDate><atom:link href="https://ak1909552.github.io/site-stuff/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 May 2022 20:43:37 +0300</lastBuildDate><atom:link href="www.abhigyankishor.ga/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Custom Domain</title>
-      <link>https://ak1909552.github.io/site-stuff/posts/2022/05/how-to-custom-domain/</link>
+      <link>www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</link>
       <pubDate>Fri, 06 May 2022 20:43:37 +0300</pubDate>
       
-      <guid>https://ak1909552.github.io/site-stuff/posts/2022/05/how-to-custom-domain/</guid>
+      <guid>www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</guid>
       <description>So you want a custom domain name? Here is a step-by-step guide to how to get one (for free) from freenom. I use github pages to host my website so the tutorial will focus on the relevant steps.
   Check availability of a domain name   In the search bar, type out the site name that you want, say example.com. It should give you a few alternatives such as shown in the picture.</description>
     </item>
