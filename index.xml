@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abhigyan Kishor</title>
-    <link>www.abhigyankishor.ga/</link>
+    <link>https://www.abhigyankishor.ga/</link>
     <description>Recent content on Abhigyan Kishor</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 06 May 2022 20:43:37 +0300</lastBuildDate><atom:link href="www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 May 2022 20:43:37 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Custom Domain</title>
-      <link>www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</link>
       <pubDate>Fri, 06 May 2022 20:43:37 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</guid>
       <description>So you want a custom domain name? Here is a step-by-step guide to how to get one (for free) from freenom. I use github pages to host my website so the tutorial will focus on the relevant steps.
   Check availability of a domain name   In the search bar, type out the site name that you want, say example.com. It should give you a few alternatives such as shown in the picture.</description>
     </item>
     
     <item>
       <title>Leetcode 1209</title>
-      <link>www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</link>
       <pubDate>Fri, 06 May 2022 12:49:34 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</guid>
       <description>Remove All Adjacent Duplicates in String II Head on over here to try to the problem for yourself.
 The problem requires a stack based solution.
 Algorithm The goal is the find the shortest string possible by removing k duplicated adjacent characters. A simple problem case is illustrated:
@@ -32,10 +32,10 @@ k = 2 s = &amp;#34;abbac&amp;#34; the result must be c. Iteration 1: remove bb =
     
     <item>
       <title>Leetcode 225</title>
-      <link>www.abhigyankishor.ga/posts/2022/05/leetcode-225/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-225/</link>
       <pubDate>Thu, 05 May 2022 15:39:24 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/05/leetcode-225/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-225/</guid>
       <description>Implementing Stacks Using Queues Head on over here to try the problem for yourself.
 The solution talks about using 2 queues, which frankly I don&amp;rsquo;t understand :&amp;rsquo;). I used a single queue to implement this problem.
 Algorithm The goal is to implement a stack using the basic queue features provided such as push(), peek() and pop(). The easiest way to implement this is by inserting elements in reverse order. Then the queue will pop the elements like a stack.</description>
@@ -43,10 +43,10 @@ Algorithm The goal is to implement a stack using the basic queue features provid
     
     <item>
       <title>Leetcode 1769</title>
-      <link>www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</link>
       <pubDate>Wed, 04 May 2022 14:27:17 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</guid>
       <description>Max Number of K-sum Pairs Head on over here to try the problem for yourself.
 This is a varaition of the famous two-sum problem that we have all struggled with :)
 Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:</description>
@@ -54,10 +54,10 @@ Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of i
     
     <item>
       <title>Leetcode 581</title>
-      <link>www.abhigyankishor.ga/posts/2022/05/leetcode-581/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-581/</link>
       <pubDate>Tue, 03 May 2022 17:10:04 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/05/leetcode-581/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-581/</guid>
       <description>Shortest Unsorted Continuous Subarray Head on over here to try the problem for yourself.
 I solved this problem using a two-pointer method.
 Algorithm The goal is to find the points where the array becomes unsorted. We use two loops, one to find the end of the unsorted sub-array and another to find the start of the unsorted sub-array. start = end = -1 as a way to check if they were updated or not during the loops.</description>
@@ -65,10 +65,10 @@ Algorithm The goal is to find the points where the array becomes unsorted. We us
     
     <item>
       <title>Leetcode 905</title>
-      <link>www.abhigyankishor.ga/posts/2022/05/leetcode-905/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-905/</link>
       <pubDate>Mon, 02 May 2022 11:36:29 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/05/leetcode-905/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-905/</guid>
       <description>Sort Array by Parity Head on over here to try the problem for yourself.
 I attempted a two-pointer approach to try and solve it.
 Algorithm The goal is to try to return the parity array in one pass. For this reason, I create a new array result[] and two pointers, evenPtr, pointing to the start of result[] and oddPtr, pointing to the end of result[]. Now I loop over the initial array.</description>
@@ -76,10 +76,10 @@ Algorithm The goal is to try to return the parity array in one pass. For this re
     
     <item>
       <title>Leetcode 844</title>
-      <link>www.abhigyankishor.ga/posts/2022/05/leetcode-844/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-844/</link>
       <pubDate>Sun, 01 May 2022 17:55:32 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/05/leetcode-844/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-844/</guid>
       <description>Backspace String Compare Head on over here to try the problem for yourself.
 There are a few ways discussed in the solutions. I will try to explain the two-pointer method.
 Algorithm The goal is to try to build the resultant string in one pass. For this reason, we will iterate over the string backwards. If we encounter #, we simply skip the first valid character that follows. Ofcourse, the caveats are considering more backspaces (#) than actual words, in which case we simply get an empty string.</description>
@@ -87,28 +87,28 @@ Algorithm The goal is to try to build the resultant string in one pass. For this
     
     <item>
       <title>Aloo Gobi</title>
-      <link>www.abhigyankishor.ga/posts/2022/04/aloo-gobi/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/04/aloo-gobi/</link>
       <pubDate>Sat, 30 Apr 2022 19:46:10 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/04/aloo-gobi/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/04/aloo-gobi/</guid>
       <description>How to cook - Aloo Gobi Sabzi (dry) Ingredients:    Item Quantity Processing     Cauliflower one head cut small floretd &amp;amp; rinse   Potato 1-2 medium sized cut into cubes and rinse   Garlic 1 large/ 2 small clove crushed   Cumin 1 tsp    Hing 1/4 tsp    Turmeric (haldi) 1/2 tsp    Chilli powder 1/4 tsp    Coriander powder 1 tsp    Oil (sarson) 1-2 serving spoon     Procedure:   Put the pan/kadai on the fire.</description>
     </item>
     
     <item>
       <title>Seam Aloo</title>
-      <link>www.abhigyankishor.ga/posts/2022/04/seam-aloo/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/04/seam-aloo/</link>
       <pubDate>Sat, 30 Apr 2022 19:46:10 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/04/seam-aloo/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/04/seam-aloo/</guid>
       <description>How to cook - Seam Aloo Sabzi Ingredients:    Item Quantity Processing     Seam 250g cut 2in pieces and rinse   Potato 1-2 medium sized cut into cubes and rinse   Tomato 1 medium sized    Garlic 1 large/ 2 small clove crushed   Cumin 1 tsp    Hing 1/4 tsp    Turmeric (haldi) 1/2 tsp    Chilli powder 1/4 tsp    Coriander powder 1 tsp    Oil (sarson) 1-2 serving spoon    Amchur Powder 1tsp    Sarson 1 1/2 tsp     Procedure:   Cut the tomato into quarters and put it in the microwave for 4-5 min.</description>
     </item>
     
     <item>
       <title>Broccoli Mushroom Soup</title>
-      <link>www.abhigyankishor.ga/posts/2022/04/broccoli-mushroom-soup/</link>
+      <link>https://www.abhigyankishor.ga/posts/2022/04/broccoli-mushroom-soup/</link>
       <pubDate>Thu, 28 Apr 2022 15:56:20 +0300</pubDate>
       
-      <guid>www.abhigyankishor.ga/posts/2022/04/broccoli-mushroom-soup/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/04/broccoli-mushroom-soup/</guid>
       <description>How to cook - Broccoli &amp;amp; Mushroom soup Ingredients: Soup    Item Quantity Processing     Broccoli 1 head cut into florets   Mushroom 250g 1 can sliced   Onion 1 small diced   Garlic 2 cloves diced/sliced   Cumin 1 tsp    Salt 2 tsp    Pepper 1 tsp    Chili flakes 1/4 tsp    Milk 1 cup    Cream OR All-purpose flour 1 tbsp    Oil 2 serving spoon    Butter 1 knob     Croutons    Item Quantity Processing     Bread 10 slices cut into squares   Oil 2 serving spoon     Procedure: Soup  Take a wide, heavy bottomed pan, that distributes heat well.</description>
     </item>
     
