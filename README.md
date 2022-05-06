@@ -7,3 +7,4 @@ Personal blog/site wip :)
 * [ ] fix dark theme
 * [ ] custom URL
 * [ ] improve about.. add projects and such
+* [ ] heading font size.. kinda small :(
