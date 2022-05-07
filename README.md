@@ -13,3 +13,4 @@ Personal blog/site wip :)
 * [ ] Improve about.. add projects and such
 * [ ] Heading font size.. kinda small :(
 * [ ] figure out emojis :)
+* [ ] Maybe google analytics

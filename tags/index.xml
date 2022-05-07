@@ -7,20 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 06 May 2022 20:43:37 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>tutorial</title>
-      <link>https://www.abhigyankishor.ga/tags/tutorial/</link>
-      <pubDate>Fri, 06 May 2022 20:43:37 +0300</pubDate>
-      
-      <guid>https://www.abhigyankishor.ga/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 07 May 2022 16:43:52 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>java</title>
       <link>https://www.abhigyankishor.ga/tags/java/</link>
-      <pubDate>Fri, 06 May 2022 12:49:34 +0300</pubDate>
+      <pubDate>Sat, 07 May 2022 16:43:52 +0300</pubDate>
       
       <guid>https://www.abhigyankishor.ga/tags/java/</guid>
       <description></description>
@@ -29,9 +20,18 @@
     <item>
       <title>leetcode</title>
       <link>https://www.abhigyankishor.ga/tags/leetcode/</link>
-      <pubDate>Fri, 06 May 2022 12:49:34 +0300</pubDate>
+      <pubDate>Sat, 07 May 2022 16:43:52 +0300</pubDate>
       
       <guid>https://www.abhigyankishor.ga/tags/leetcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorial</title>
+      <link>https://www.abhigyankishor.ga/tags/tutorial/</link>
+      <pubDate>Fri, 06 May 2022 20:43:37 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/tags/tutorial/</guid>
       <description></description>
     </item>
     

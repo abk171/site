@@ -6,8 +6,188 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 06 May 2022 20:43:37 +0300</lastBuildDate>
+        <lastBuildDate>Sat, 07 May 2022 16:43:52 +0300</lastBuildDate>
         <atom:link href="https://www.abhigyankishor.ga/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Leetcode 456</title>
+            <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</link>
+            <pubDate>Sat, 07 May 2022 16:43:52 +0300</pubDate>
+            
+            <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</guid>
+            <description>132 Pattern Head on over here to try the problem for yourself.
+This one was so annoying :&amp;rsquo;(. I ended up following this tutorial for ironing out the final cases.
+  Algorithm The goal is to maintain a descending monotonic stack to keep track of the minimum value present before each element in the stack. The ideal case is for the ith index to be as small as possible, the jth index to be as large as possible, and the kth index to be somewhere in between.</description>
+            <content type="html"><![CDATA[<h2 id="132-pattern">132 Pattern</h2>
+<p>Head on over <a href="https://leetcode.com/problems/132-pattern">here</a> to try the problem for yourself.</p>
+<p>This one was so annoying :&rsquo;(. I ended up following this tutorial for ironing out the final cases.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/q5ANAl8Z458" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to maintain a <strong>descending monotonic stack</strong> to keep track of the minimum value present before each element in the stack. The ideal case is for the <code>ith</code> index to be as small as possible, the <code>jth</code> index to be as large as possible, and the <code>kth</code> index to be somewhere in between. To keep track of the lowest <code>ith</code> index, we insert into the stack, the smallest element before the current element.</p>
+<p>Thats too many words so let&rsquo;s try an example.</p>
+<pre tabindex="0"><code>nums[] = [1,4,5,7,8,9,6]
+Stack&lt;int[] &gt; st = {}
+min = 1
+n = nums[1:]
+</code></pre><table>
+<thead>
+<tr>
+<th>n</th>
+<th>min</th>
+<th>st</th>
+<th>ith</th>
+<th>jth</th>
+<th>kth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>{[4,1]}</td>
+<td>1</td>
+<td>4</td>
+<td>?</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>{[5,1]}</td>
+<td>1</td>
+<td>5</td>
+<td>?</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1</td>
+<td>{[7,1]}</td>
+<td>1</td>
+<td>7</td>
+<td>?</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+<td>{[8,1]}</td>
+<td>1</td>
+<td>8</td>
+<td>?</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1</td>
+<td>{[9,1]}</td>
+<td>1</td>
+<td>9</td>
+<td>?</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>{[9,1],[6,1]}</td>
+<td>1</td>
+<td>9</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>We finally get a trio that satisfies so we return <code>true</code>.</p>
+<p>Here is a more annoying example.</p>
+<pre tabindex="0"><code>nums[] = [1,4,0,-1,-2,-3,-1,-2]
+</code></pre><table>
+<thead>
+<tr>
+<th>n</th>
+<th>min</th>
+<th>st</th>
+<th>ith</th>
+<th>jth</th>
+<th>kth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>{[4,1]}</td>
+<td>1</td>
+<td>4</td>
+<td>?</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>{[4,1],[0,1]}</td>
+<td>1</td>
+<td>4</td>
+<td>?</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>0</td>
+<td>{[4,1],[0,1],[-1,0]}</td>
+<td>0</td>
+<td>-1</td>
+<td>?</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>-1</td>
+<td>{[4,1],[0,1],[-1,0],[-2,-1]}</td>
+<td>-1</td>
+<td>-2</td>
+<td>?</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>-2</td>
+<td>{[4,1],[0,1],[-1,0],[-2,-1],[-3,-2]}</td>
+<td>-2</td>
+<td>-3</td>
+<td>?</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-3</td>
+<td>{[4,1],[0,1],[-1,-3]}</td>
+<td>-3</td>
+<td>-1</td>
+<td>?</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>-3</td>
+<td>{[4,1],[0,1],[-1,-3],[-2,-3]}</td>
+<td>-3</td>
+<td>-1</td>
+<td>-2</td>
+</tr>
+</tbody>
+</table>
+<p>We finally get a trio that satisfies so we return <code>true</code>.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">find132pattern</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> 3<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#f92672">&gt;</span> st <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> min <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>0<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span><span style="color:#f92672">(!</span>st<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;=</span> st<span style="color:#f92672">.</span><span style="color:#a6e22e">peek</span><span style="color:#f92672">()[</span>0<span style="color:#f92672">])</span> st<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>st<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;</span> st<span style="color:#f92672">.</span><span style="color:#a6e22e">peek</span><span style="color:#f92672">()[</span>1<span style="color:#f92672">])</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    st<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#f92672">{</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> min<span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>    min <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">min</span><span style="color:#f92672">(</span>min<span style="color:#f92672">,</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>How to Custom Domain</title>

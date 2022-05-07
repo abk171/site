@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 06 May 2022 12:49:34 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 May 2022 16:43:52 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 456</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</link>
+      <pubDate>Sat, 07 May 2022 16:43:52 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</guid>
+      <description>132 Pattern Head on over here to try the problem for yourself.
+This one was so annoying :&amp;rsquo;(. I ended up following this tutorial for ironing out the final cases.
+  Algorithm The goal is to maintain a descending monotonic stack to keep track of the minimum value present before each element in the stack. The ideal case is for the ith index to be as small as possible, the jth index to be as large as possible, and the kth index to be somewhere in between.</description>
+    </item>
+    
     <item>
       <title>Leetcode 1209</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</link>
