@@ -13,4 +13,5 @@ Personal blog/site wip :)
 * [ ] Improve about.. add projects and such
 * [ ] Heading font size.. kinda small :(
 * [ ] figure out emojis :)
-* [ ] Maybe google analytics
+* [x] ~~Maybe google analytics~~
+  * All done! check out [this](https://www.abhigyankishor.ga/posts/2022/05/google-analytics-4-and-hugo/) blog post to see how I did it :)

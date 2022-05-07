@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 06 May 2022 20:43:37 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 May 2022 21:41:41 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Analytics 4 and Hugo</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-4-and-hugo/</link>
+      <pubDate>Sat, 07 May 2022 21:41:41 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-4-and-hugo/</guid>
+      <description>So you want to add GA4 to your Hugo website? Here is a step-by-step guide to adding Google Analytics to your Hugo website.
+  Setup a Google Analytics account   Head over here and make an account (or sign in if you already have one).
+Create a property (accessed through admin), add a stream, and point it to your site URL.
+Once done, head over to admin &amp;gt; property &amp;gt; Data Streams and go to your newly created stream.</description>
+    </item>
+    
     <item>
       <title>How to Custom Domain</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</link>

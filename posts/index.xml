@@ -6,8 +6,74 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 07 May 2022 16:43:52 +0300</lastBuildDate>
+        <lastBuildDate>Sat, 07 May 2022 21:41:41 +0300</lastBuildDate>
         <atom:link href="https://www.abhigyankishor.ga/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Google Analytics 4 and Hugo</title>
+            <link>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-4-and-hugo/</link>
+            <pubDate>Sat, 07 May 2022 21:41:41 +0300</pubDate>
+            
+            <guid>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-4-and-hugo/</guid>
+            <description>So you want to add GA4 to your Hugo website? Here is a step-by-step guide to adding Google Analytics to your Hugo website.
+  Setup a Google Analytics account   Head over here and make an account (or sign in if you already have one).
+Create a property (accessed through admin), add a stream, and point it to your site URL.
+Once done, head over to admin &amp;gt; property &amp;gt; Data Streams and go to your newly created stream.</description>
+            <content type="html"><![CDATA[<h2 id="so-you-want-to-add-ga4-to-your-hugo-website">So you want to add GA4 to your Hugo website?</h2>
+<p>Here is a step-by-step guide to adding Google Analytics to your Hugo website.</p>
+<ol>
+<li>
+<h3 id="setup-a-google-analytics-account">Setup a Google Analytics account</h3>
+</li>
+</ol>
+<p>Head over <a href="https://analytics.google.com">here</a> and make an account (or sign in if you already have one).</p>
+<p>Create a <code>property</code> (accessed through <code>admin</code>), add a stream, and point it to your site URL.</p>
+<p>Once done, head over to <code>admin &gt; property &gt; Data Streams</code> and go to your newly created stream. Copy the gtag. It should look something like this <code>G-XXXXXXXXXX</code>.</p>
+<ol start="2">
+<li>
+<h3 id="edit-configtoml">Edit config.toml</h3>
+</li>
+</ol>
+<p>In your <code>config.toml</code> file, add a new property under <code>params</code> as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">GoogleAnalyticsID</span> = <span style="color:#e6db74">&#34;G-XXXXXXXXXX&#34;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span></code></pre></div><ol start="3">
+<li>
+<h3 id="edit-your-layouts-folder">Edit your layouts folder</h3>
+</li>
+</ol>
+<p>Depending on your theme, this step may differ slightly. I have used the <a href="https://github.com/rhazdon/hugo-theme-hello-friend-ng">hello-friend-ng</a>. I initially tried to add it to the websites layouts folder, but it was throwing a few errors :(.</p>
+<p>For this theme, I add a partial with the following script (from the google analytics page).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Add this in 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">themes/hello-friend-ng/layouts/partials/analytics-gtag.html --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">async</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.googletagmanager.com/gtag/js?id={{ .Site.params.GoogleAnalyticsID }}&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">dataLayer</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">dataLayer</span> <span style="color:#f92672">||</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">gtag</span>(){<span style="color:#a6e22e">dataLayer</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arguments</span>);}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gtag</span>(<span style="color:#e6db74">&#39;js&#39;</span>, <span style="color:#66d9ef">new</span> Date());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gtag</span>(<span style="color:#e6db74">&#39;config&#39;</span>, <span style="color:#e6db74">&#39;{{ .Site.params.GoogleAnalyticsID }}&#39;</span>);
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>Then I simply added the partial to the <code>&lt;head/&gt;</code> of the <code>baseof.html</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Add this in
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">themes/hello-friend-ng/layouts/_default/ --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ partial &#34;head.html&#34; . }}
+</span></span><span style="display:flex;"><span>    {{ if and (hugo.IsProduction) (.Site.Params.googleAnalyticsID) }}
+</span></span><span style="display:flex;"><span>    {{ partial &#34;analytics-gtag.html&#34; . }}
+</span></span><span style="display:flex;"><span>    {{ end }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span></code></pre></div><p>The script makes sure that Google Analytics is only running on your actual website, and not on localhost for testing as well.</p>
+<ol start="4">
+<li>
+<h3 id="all-set">All set!</h3>
+</li>
+</ol>
+<p>Head to your Google Analytics page and check out <code>reports</code>. If all goes well, congratulations! According to google, you are the first of many users to see this webpage :)</p>
+]]></content>
+        </item>
         
         <item>
             <title>Leetcode 456</title>
