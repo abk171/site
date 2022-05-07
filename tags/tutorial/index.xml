@@ -9,11 +9,11 @@
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 07 May 2022 21:41:41 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Google Analytics 4 and Hugo</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-4-and-hugo/</link>
+      <title>Google Analytics and Hugo</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/</link>
       <pubDate>Sat, 07 May 2022 21:41:41 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-4-and-hugo/</guid>
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/</guid>
       <description>So you want to add GA4 to your Hugo website? Here is a step-by-step guide to adding Google Analytics to your Hugo website.
   Setup a Google Analytics account   Head over here and make an account (or sign in if you already have one).
 Create a property (accessed through admin), add a stream, and point it to your site URL.
