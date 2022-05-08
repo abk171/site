@@ -6,8 +6,69 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 07 May 2022 21:41:41 +0300</lastBuildDate>
+        <lastBuildDate>Sun, 08 May 2022 14:29:29 +0300</lastBuildDate>
         <atom:link href="https://www.abhigyankishor.ga/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Leetcode 341</title>
+            <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</link>
+            <pubDate>Sun, 08 May 2022 14:29:29 +0300</pubDate>
+            
+            <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</guid>
+            <description>Flatten Nested List Iterator Head on over here to try the problem for yourself.
+I spent way too long trying to figure out that they had already provided the NestedInteger interface XD. The solution is simply a recursion over the elements of nestedList.
+Algorithm The goal is to build an iterator over the provided nestedList. So we need to implement next() and hasNext() for the given nestedList. I approach this by converting the nestedList into an ArrayList.</description>
+            <content type="html"><![CDATA[<h2 id="flatten-nested-list-iterator">Flatten Nested List Iterator</h2>
+<p>Head on over <a href="https://leetcode.com/problems/flatten-nested-list-iterator">here</a> to try the problem for yourself.</p>
+<p>I spent way too long trying to figure out that they had already provided the <code>NestedInteger</code> interface XD. The solution is simply a <strong>recursion</strong> over the elements of <code>nestedList</code>.</p>
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to build an iterator over the provided <code>nestedList</code>. So we need to implement <code>next()</code> and <code>hasNext()</code> for the given <code>nestedList</code>. I approach this by converting the <code>nestedList</code> into an <code>ArrayList</code>. I defined a function called <code>build()</code> which converts <code>nestedList</code>, to an <code>ArrayList</code>. It iterates over every element in the <code>nestedList</code> and processes them as follows:</p>
+<ol>
+<li>if <code>item.isInteger()</code> then <code>arr.add(item.getInteger())</code></li>
+<li>else recursively go through every element in the list.</li>
+</ol>
+<p>Here is an example that illustrates the problem.</p>
+<pre tabindex="0"><code>nestedList = [1,2,[3,4,[5,6],7],8]
+</code></pre><p>As you can see, element 2 of nestedList contains integers and a list. So we must check each element recursively to build the required arraylist.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NestedIterator</span> <span style="color:#66d9ef">implements</span> Iterator<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  ArrayList<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> arr<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> index<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">NestedIterator</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>NestedInteger<span style="color:#f92672">&gt;</span> nestedList<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>    index <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>NestedInteger item <span style="color:#f92672">:</span> nestedList<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      build<span style="color:#f92672">(</span>arr<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">build</span><span style="color:#f92672">(</span>NestedInteger item<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// isInteger() and getInteger() are
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// part of the NestedInteger interface
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>item<span style="color:#f92672">.</span><span style="color:#a6e22e">isInteger</span><span style="color:#f92672">())</span>
+</span></span><span style="display:flex;"><span>      arr<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>item<span style="color:#f92672">.</span><span style="color:#a6e22e">getInteger</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>NestedInteger element <span style="color:#f92672">:</span> item<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        build<span style="color:#f92672">(</span>element<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">next</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> arr<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>index<span style="color:#f92672">++);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> index <span style="color:#f92672">&lt;</span> arr<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>Google Analytics and Hugo</title>

@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 07 May 2022 16:43:52 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 14:29:29 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 341</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</link>
+      <pubDate>Sun, 08 May 2022 14:29:29 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</guid>
+      <description>Flatten Nested List Iterator Head on over here to try the problem for yourself.
+I spent way too long trying to figure out that they had already provided the NestedInteger interface XD. The solution is simply a recursion over the elements of nestedList.
+Algorithm The goal is to build an iterator over the provided nestedList. So we need to implement next() and hasNext() for the given nestedList. I approach this by converting the nestedList into an ArrayList.</description>
+    </item>
+    
     <item>
       <title>Leetcode 456</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</link>

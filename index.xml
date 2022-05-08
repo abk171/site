@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 07 May 2022 21:41:41 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 14:29:29 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 341</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</link>
+      <pubDate>Sun, 08 May 2022 14:29:29 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</guid>
+      <description>Flatten Nested List Iterator Head on over here to try the problem for yourself.
+I spent way too long trying to figure out that they had already provided the NestedInteger interface XD. The solution is simply a recursion over the elements of nestedList.
+Algorithm The goal is to build an iterator over the provided nestedList. So we need to implement next() and hasNext() for the given nestedList. I approach this by converting the nestedList into an ArrayList.</description>
+    </item>
+    
     <item>
       <title>Google Analytics and Hugo</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/</link>
@@ -106,15 +117,6 @@ Algorithm The goal is to try to return the parity array in one pass. For this re
       <description>Backspace String Compare Head on over here to try the problem for yourself.
 There are a few ways discussed in the solutions. I will try to explain the two-pointer method.
 Algorithm The goal is to try to build the resultant string in one pass. For this reason, we will iterate over the string backwards. If we encounter #, we simply skip the first valid character that follows. Ofcourse, the caveats are considering more backspaces (#) than actual words, in which case we simply get an empty string.</description>
-    </item>
-    
-    <item>
-      <title>Aloo Gobi</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/04/aloo-gobi/</link>
-      <pubDate>Sat, 30 Apr 2022 19:46:10 +0300</pubDate>
-      
-      <guid>https://www.abhigyankishor.ga/posts/2022/04/aloo-gobi/</guid>
-      <description>How to cook - Aloo Gobi Sabzi (dry) Ingredients:    Item Quantity Processing     Cauliflower one head cut small floretd &amp;amp; rinse   Potato 1-2 medium sized cut into cubes and rinse   Garlic 1 large/ 2 small clove crushed   Cumin 1 tsp    Hing 1/4 tsp    Turmeric (haldi) 1/2 tsp    Chilli powder 1/4 tsp    Coriander powder 1 tsp    Oil (sarson) 1-2 serving spoon     Procedure:   Put the pan/kadai on the fire.</description>
     </item>
     
   </channel>

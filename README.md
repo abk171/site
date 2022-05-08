@@ -14,4 +14,6 @@ Personal blog/site wip :)
 * [ ] Heading font size.. kinda small :(
 * [ ] figure out emojis :)
 * [x] ~~Maybe google analytics~~
-  * All done! check out [this](https://www.abhigyankishor.ga/posts/2022/05/google-analytics-4-and-hugo/) blog post to see how I did it :)
+  * All done! check out [this](https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/) blog post to see how I did it :)
+* [ ] Google Site Verification
+* [ ] CI/CD
