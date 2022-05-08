@@ -15,5 +15,8 @@ Personal blog/site wip :)
 * [ ] figure out emojis :)
 * [x] ~~Maybe google analytics~~
   * All done! check out [this](https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/) blog post to see how I did it :)
-* [ ] Google Site Verification
+* [ ] ~~Google Site Verification~~
+  * I think this is a by-product of site verification
+  * The crawl request was successful and google is aware of my webpage :) 
 * [ ] CI/CD
+* [ ] Improve the tags system
