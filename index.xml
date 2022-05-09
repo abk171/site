@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 08 May 2022 14:29:29 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 15:46:21 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 17</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</link>
+      <pubDate>Mon, 09 May 2022 15:46:21 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</guid>
+      <description>Letter Combination of a Phone Number head on over here to try the problem for yourself.
+Most permutation based problems seem to use a back-tracking solution, but don&amp;rsquo;t quote me on that :)
+Algorithm The goal is to get all permutations of letters corresponding to a given phone number. First, we create a mapping of numbers and the corresponding letters. Then we simply set up a backtracking function helper() which will populate our result list with the required solutions.</description>
+    </item>
+    
     <item>
       <title>Leetcode 341</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</link>
@@ -106,17 +117,6 @@ Algorithm The goal is to find the points where the array becomes unsorted. We us
       <description>Sort Array by Parity Head on over here to try the problem for yourself.
 I attempted a two-pointer approach to try and solve it.
 Algorithm The goal is to try to return the parity array in one pass. For this reason, I create a new array result[] and two pointers, evenPtr, pointing to the start of result[] and oddPtr, pointing to the end of result[]. Now I loop over the initial array.</description>
-    </item>
-    
-    <item>
-      <title>Leetcode 844</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-844/</link>
-      <pubDate>Sun, 01 May 2022 17:55:32 +0300</pubDate>
-      
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-844/</guid>
-      <description>Backspace String Compare Head on over here to try the problem for yourself.
-There are a few ways discussed in the solutions. I will try to explain the two-pointer method.
-Algorithm The goal is to try to build the resultant string in one pass. For this reason, we will iterate over the string backwards. If we encounter #, we simply skip the first valid character that follows. Ofcourse, the caveats are considering more backspaces (#) than actual words, in which case we simply get an empty string.</description>
     </item>
     
   </channel>
