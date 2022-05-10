@@ -7,14 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 09 May 2022 15:46:21 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 May 2022 12:39:01 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 216</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</link>
+      <pubDate>Tue, 10 May 2022 12:39:01 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</guid>
+      <description>Combination Sum III Head on over here to try the problem for yourself.
+Another permutation based problem solved using back-tracking.
+Algorithm The goal is to get all combinations (without repeat) of k integers from 1-9 whose sum is n. To achieve this, simply backtrack and decrement n with the current integer. Also, to ensure no repeats, pass in the next integer to the recursive call.
+Code public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; combinationSum3(int k, int n) {  List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; result = new ArrayList&amp;lt;&amp;gt;();  helper(result, new ArrayList&amp;lt;&amp;gt;(), k, n, 1);  return result; }  public void helper(List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; result, List&amp;lt;Integer&amp;gt; curr, int k, int n, int index) {  if(n &amp;lt; 0) return;  if(n == 0 &amp;amp;&amp;amp; curr.</description>
+    </item>
+    
     <item>
       <title>Leetcode 17</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</link>
       <pubDate>Mon, 09 May 2022 15:46:21 +0300</pubDate>
       
       <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</guid>
-      <description>Letter Combination of a Phone Number head on over here to try the problem for yourself.
+      <description>Letter Combination of a Phone Number Head on over here to try the problem for yourself.
 Most permutation based problems seem to use a back-tracking solution, but don&amp;rsquo;t quote me on that 😅
 Algorithm The goal is to get all permutations of letters corresponding to a given phone number. First, we create a mapping of numbers and the corresponding letters. Then we simply set up a backtracking function helper() which will populate our result list with the required solutions.</description>
     </item>

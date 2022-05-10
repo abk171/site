@@ -6,8 +6,50 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 09 May 2022 15:46:21 +0300</lastBuildDate>
+        <lastBuildDate>Tue, 10 May 2022 12:39:01 +0300</lastBuildDate>
         <atom:link href="https://www.abhigyankishor.ga/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Leetcode 216</title>
+            <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</link>
+            <pubDate>Tue, 10 May 2022 12:39:01 +0300</pubDate>
+            
+            <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</guid>
+            <description>Combination Sum III Head on over here to try the problem for yourself.
+Another permutation based problem solved using back-tracking.
+Algorithm The goal is to get all combinations (without repeat) of k integers from 1-9 whose sum is n. To achieve this, simply backtrack and decrement n with the current integer. Also, to ensure no repeats, pass in the next integer to the recursive call.
+Code public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; combinationSum3(int k, int n) {  List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; result = new ArrayList&amp;lt;&amp;gt;();  helper(result, new ArrayList&amp;lt;&amp;gt;(), k, n, 1);  return result; }  public void helper(List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; result, List&amp;lt;Integer&amp;gt; curr, int k, int n, int index) {  if(n &amp;lt; 0) return;  if(n == 0 &amp;amp;&amp;amp; curr.</description>
+            <content type="html"><![CDATA[<h2 id="combination-sum-iii">Combination Sum III</h2>
+<p>Head on over <a href="https://leetcode.com/problems/combination-sum-iii">here</a> to try the problem for yourself.</p>
+<p>Another permutation based problem solved using <strong>back-tracking</strong>.</p>
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to get all combinations (without repeat) of <code>k</code> integers from 1-9 whose sum is <code>n</code>. To achieve this, simply backtrack and decrement <code>n</code> with the current integer. Also, to ensure no repeats, pass in the next integer to the recursive call.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">combinationSum3</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> k<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>  helper<span style="color:#f92672">(</span>result<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(),</span> k<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">helper</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> result<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> curr<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> k<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> n<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>n <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>n <span style="color:#f92672">==</span> 0 <span style="color:#f92672">&amp;&amp;</span> curr<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    result<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(</span>curr<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(;</span> index <span style="color:#f92672">&lt;</span> 10<span style="color:#f92672">;</span> index<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// here i had to first append then pass curr
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// because curr.add() returns boolean
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    curr<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>index<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    helper<span style="color:#f92672">(</span>result<span style="color:#f92672">,</span> curr<span style="color:#f92672">,</span> k<span style="color:#f92672">,</span> n <span style="color:#f92672">-</span> index<span style="color:#f92672">,</span> index <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// delete previous element to continue in 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// for loop
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    curr<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>Leetcode 17</title>
@@ -15,11 +57,11 @@
             <pubDate>Mon, 09 May 2022 15:46:21 +0300</pubDate>
             
             <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</guid>
-            <description>Letter Combination of a Phone Number head on over here to try the problem for yourself.
+            <description>Letter Combination of a Phone Number Head on over here to try the problem for yourself.
 Most permutation based problems seem to use a back-tracking solution, but don&amp;rsquo;t quote me on that 😅
 Algorithm The goal is to get all permutations of letters corresponding to a given phone number. First, we create a mapping of numbers and the corresponding letters. Then we simply set up a backtracking function helper() which will populate our result list with the required solutions.</description>
             <content type="html"><![CDATA[<h2 id="letter-combination-of-a-phone-number">Letter Combination of a Phone Number</h2>
-<p>head on over <a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number">here</a> to try the problem for yourself.</p>
+<p>Head on over <a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number">here</a> to try the problem for yourself.</p>
 <p>Most permutation based problems seem to use a <strong>back-tracking</strong> solution, but don&rsquo;t quote me on that 😅</p>
 <h4 id="algorithm">Algorithm</h4>
 <p>The goal is to get all permutations of letters corresponding to a given phone number. First, we create a mapping of numbers and the corresponding letters. Then we simply set up a backtracking function <code>helper()</code> which will populate our <code>result</code> list with the required solutions.</p>
