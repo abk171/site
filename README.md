@@ -4,9 +4,10 @@ Personal blog/site wip :)
 ## To-do:
 * [x] ~~change theme~~
   * Theme used was [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng)
-* [ ] Fix dark theme
-  * This kinda works, depending on your OS settings
-  * Need to add a button tho?
+* [x] ~~Fix dark theme~~
+  * ~~This kinda works, depending on your OS settings~~
+  * ~~Need to add a button tho?~~
+  * Just .Site.Params.EnableThemeToggle = true :o
 * [x] ~~custom URL~~
   * Go to [abhigyankishor.ga](https://www.abhigyankishor.ga)
   * Go to [this](https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/) blog post to see how I did it :)
