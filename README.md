@@ -2,6 +2,11 @@
 Personal blog/site wip :)
 
 ## To-do:
+* [ ] Improve about.. add projects and such
+* [ ] CI/CD
+* [ ] Improve the tags system
+
+## Done:
 * [x] change theme
   * Theme used was [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng)
 * [x] Fix dark theme
@@ -11,7 +16,7 @@ Personal blog/site wip :)
 * [x] custom URL
   * Go to [abhigyankishor.ga](https://www.abhigyankishor.ga)
   * Go to [this](https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/) blog post to see how I did it :)
-* [ ] Improve about.. add projects and such
+
 * [x] Heading font size.. kinda small :(
   * edit `\_main.css`
 * [x] Figure out emojis :)
@@ -23,5 +28,4 @@ Personal blog/site wip :)
 * [x] Google Site Verification
   * I think this is a by-product of google analytics
   * The crawl request was successful and google is aware of my webpage :) 
-* [ ] CI/CD
-* [ ] Improve the tags system
+
