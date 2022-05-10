@@ -15,7 +15,7 @@
       
       <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</guid>
       <description>Letter Combination of a Phone Number head on over here to try the problem for yourself.
-Most permutation based problems seem to use a back-tracking solution, but don&amp;rsquo;t quote me on that :)
+Most permutation based problems seem to use a back-tracking solution, but don&amp;rsquo;t quote me on that 😅
 Algorithm The goal is to get all permutations of letters corresponding to a given phone number. First, we create a mapping of numbers and the corresponding letters. Then we simply set up a backtracking function helper() which will populate our result list with the required solutions.</description>
     </item>
     
@@ -93,7 +93,7 @@ Algorithm The goal is to implement a stack using the basic queue features provid
       
       <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</guid>
       <description>Max Number of K-sum Pairs Head on over here to try the problem for yourself.
-This is a varaition of the famous two-sum problem that we have all struggled with :)
+This is a varaition of the famous two-sum problem that we have all struggled with 😅
 Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:</description>
     </item>
     

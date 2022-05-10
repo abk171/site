@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Abhigyan Kishor ">
 <meta name="description" content="Max Number of K-sum Pairs Head on over here to try the problem for yourself.
-This is a varaition of the famous two-sum problem that we have all struggled with :)
+This is a varaition of the famous two-sum problem that we have all struggled with 😅
 Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:" />
 <meta name="keywords" content=", leetcode, java" />
 <meta name="robots" content="noodp" />
@@ -27,7 +27,7 @@ Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of i
 
 
 
-<link rel="stylesheet" href="https://www.abhigyankishor.ga/main.bf6722e78418c841a556dce1b45d6689fbcc965bca2d88dc7ed849962300a1d5.css">
+<link rel="stylesheet" href="https://www.abhigyankishor.ga/main.9ea1da80d5f38e555338571a4b93fd492c1f04c645f7e0f0da98d743a4296289.css">
 
 
 
@@ -42,7 +42,7 @@ Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of i
 
 <meta itemprop="name" content="Leetcode 1769">
 <meta itemprop="description" content="Max Number of K-sum Pairs Head on over here to try the problem for yourself.
-This is a varaition of the famous two-sum problem that we have all struggled with :)
+This is a varaition of the famous two-sum problem that we have all struggled with 😅
 Algorithm &amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:"><meta itemprop="datePublished" content="2022-05-04T14:27:17+03:00" />
 <meta itemprop="dateModified" content="2022-05-04T14:27:17+03:00" />
 <meta itemprop="wordCount" content="408"><meta itemprop="image" content="https://www.abhigyankishor.ga"/>
@@ -52,7 +52,7 @@ Algorithm &amp; Code The slower O(n) The goal is the count unique pairs of integ
 
 <meta name="twitter:title" content="Leetcode 1769"/>
 <meta name="twitter:description" content="Max Number of K-sum Pairs Head on over here to try the problem for yourself.
-This is a varaition of the famous two-sum problem that we have all struggled with :)
+This is a varaition of the famous two-sum problem that we have all struggled with 😅
 Algorithm &amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:"/>
 
 
@@ -60,7 +60,7 @@ Algorithm &amp; Code The slower O(n) The goal is the count unique pairs of integ
 
     <meta property="og:title" content="Leetcode 1769" />
 <meta property="og:description" content="Max Number of K-sum Pairs Head on over here to try the problem for yourself.
-This is a varaition of the famous two-sum problem that we have all struggled with :)
+This is a varaition of the famous two-sum problem that we have all struggled with 😅
 Algorithm &amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.abhigyankishor.ga/posts/2022/05/leetcode-1769/" /><meta property="og:image" content="https://www.abhigyankishor.ga"/><meta property="article:section" content="posts" />
@@ -173,7 +173,7 @@ Algorithm &amp; Code The slower O(n) The goal is the count unique pairs of integ
       <div class="post-content">
         <h2 id="max-number-of-k-sum-pairs">Max Number of K-sum Pairs</h2>
 <p>Head on over <a href="https://leetcode.com/problems/max-number-of-k-sum-pairs">here</a> to try the problem for yourself.</p>
-<p>This is a varaition of the famous <strong>two-sum</strong> problem that we have all struggled with :)</p>
+<p>This is a varaition of the famous <strong>two-sum</strong> problem that we have all struggled with 😅</p>
 <h4 id="algorithm--code">Algorithm &amp; Code</h4>
 <h5 id="the-slower-on">The slower O(n)</h5>
 <p>The goal is the count unique pairs of integers that sum up to given <code>k</code>. For this, we create a hashmap that stores unique values of the integers. Then we go over the <code>keySet()</code> and update the count according to the following rules:</p>
@@ -218,7 +218,7 @@ Algorithm &amp; Code The slower O(n) The goal is the count unique pairs of integ
 <li><code>if((k-key) in map and occurence(k-key) &gt; 0)</code> then remove an occurence and update count</li>
 <li>else just add a new element or update its previous value</li>
 </ul>
-<h5 id="the-faster-code-">The faster code :)</h5>
+<h5 id="the-faster-code-">The faster code 😄</h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maxOperations</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        HashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
@@ -228,7 +228,7 @@ Algorithm &amp; Code The slower O(n) The goal is the count unique pairs of integ
 </span></span><span style="display:flex;"><span>                map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>k <span style="color:#f92672">-</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#75715e">// getOrDefault makes this part a lot less ugly :)
+</span></span><span style="display:flex;"><span>              <span style="color:#75715e">// getOrDefault makes this part a lot less ugly 😄
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrDefault</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
