@@ -28,4 +28,7 @@ Personal blog/site wip :)
 * [x] Google Site Verification
   * I think this is a by-product of google analytics
   * The crawl request was successful and google is aware of my webpage :) 
+* [x] Improved twitter card :)
+  * will slowly update the other posts as well.
+  * updated fronmatter so it looks much better now.
 
