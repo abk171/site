@@ -18,11 +18,11 @@ Personal blog/site wip :)
   * Go to [this](https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/) blog post to see how I did it :)
 
 * [x] Heading font size.. kinda small :(
-  * edit `\_main.css`
+  * edit `main.css`
 * [x] Figure out emojis :)
   * `enableEmoji = true` for rendering emojis in markdown
   * [emoji cheatsheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
-  * However, if you are passing something in the config.toml and want emojis then use emojify as shown in [here](https://stackoverflow.com/questions/60161106/how-can-i-insert-an-emoji-on-config-toml-in-hugo-rendered-website)
+  * However, if you are passing something in the config.toml and want emojis then use `emojify` as shown in [here](https://stackoverflow.com/questions/60161106/how-can-i-insert-an-emoji-on-config-toml-in-hugo-rendered-website)
 * [x] Maybe google analytics?
   * All done! check out [this](https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/) blog post to see how I did it :)
 * [x] Google Site Verification
