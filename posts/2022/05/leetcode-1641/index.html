@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Abhigyan Kishor ">
+<meta name="description" content="Count Sorted Vowel Strings" />
+<meta name="keywords" content=", leetcode, java" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/" />
+
+
+    <title>
+        
+            Leetcode 1641 :: Abhigyan Kishor 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://www.abhigyankishor.ga/main.9ea1da80d5f38e555338571a4b93fd492c1f04c645f7e0f0da98d743a4296289.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.abhigyankishor.ga/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.abhigyankishor.ga/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.abhigyankishor.ga/favicon-16x16.png">
+    <link rel="manifest" href="https://www.abhigyankishor.ga/site.webmanifest">
+    <link rel="mask-icon" href="https://www.abhigyankishor.ga/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://www.abhigyankishor.ga/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Leetcode 1641">
+<meta itemprop="description" content="Count Sorted Vowel Strings"><meta itemprop="datePublished" content="2022-05-11T18:54:28+03:00" />
+<meta itemprop="dateModified" content="2022-05-11T18:54:28+03:00" />
+<meta itemprop="wordCount" content="294"><meta itemprop="image" content="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png">
+<meta itemprop="keywords" content="leetcode,java," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"/>
+
+<meta name="twitter:title" content="Leetcode 1641"/>
+<meta name="twitter:description" content="Count Sorted Vowel Strings"/>
+
+
+
+
+    <meta property="og:title" content="Leetcode 1641" />
+<meta property="og:description" content="Count Sorted Vowel Strings" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/" /><meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-11T18:54:28+03:00" />
+<meta property="article:modified_time" content="2022-05-11T18:54:28+03:00" /><meta property="og:site_name" content="Abhigyan Kishor" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-05-11 18:54:28 &#43;0300 &#43;03" />
+
+
+
+
+
+
+
+
+
+
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XMQF0SY3DD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XMQF0SY3DD');
+</script>
+        
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://www.abhigyankishor.ga/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://www.abhigyankishor.ga/about">About</a></li><li><a href="https://www.abhigyankishor.ga/posts">Posts</a></li>
+    </ul>
+</nav>
+
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        2 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/">Leetcode 1641</a>
+      </h1>
+
+      
+        <div class="post-excerpt">Count Sorted Vowel Strings</div>
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h2 id="count-sorted-vowel-strings">Count Sorted Vowel Strings</h2>
+<p>Head on over <a href="https://leetcode.com/problems/count-sorted-vowel-strings">here</a> to try the problem for yourself.</p>
+<p>Hint says <strong>back-tracking</strong>, solutions say <strong>dynamic programming</strong> 😅.</p>
+<h3 id="back-tracking">Back-tracking</h3>
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to get all sorted combinations of the vowels for a string of length <code>n</code>. I set up a <code>count</code> variable outside the functions to ensure it stays out of scope for all the recursive calls. The <code>helper()</code> function recieves the previous index and remaining charaters. <code>helper()</code> loops till 4 (because there are 5 vowels). Everytime, <code>n==0</code>, increment <code>counter</code>.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">countVowelStrings</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    helper<span style="color:#f92672">(</span>n<span style="color:#f92672">,</span>0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">helper</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>n <span style="color:#f92672">&lt;=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      count<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(;</span> index <span style="color:#f92672">&lt;</span> 5<span style="color:#f92672">;</span> index<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      helper<span style="color:#f92672">(</span>n <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> index<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// index not decremented because same 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// letters are valid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h4 id="algorithm-1">Algorithm</h4>
+<p>The following pattern explains the intuition behind this approach.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>e</th>
+<th>i</th>
+<th>o</th>
+<th>u</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n = 1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>n = 2</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>n = 3</td>
+<td>15</td>
+<td>10</td>
+<td>6</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>:</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The last string will always be <code>uuuu.. n times</code>. Every other string will occur count of previous + count of next.</p>
+<h4 id="code-1">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">countVowelStrings</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> store <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>5<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> store<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> 
+</span></span><span style="display:flex;"><span>    store<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// This is the base condition when n = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// so we check for n &gt; 1 in the while
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>n<span style="color:#f92672">--</span> <span style="color:#f92672">&gt;</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 3<span style="color:#f92672">;</span> i <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      store<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> store<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// follow the pattern :)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// i was giving i-1 and 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// was really confused
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> store<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">+=</span> store<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://www.abhigyankishor.ga/tags/leetcode/">leetcode</a></span>
+        <span class="tag"><a href="https://www.abhigyankishor.ga/tags/java/">java</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        294 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-05-11 18:54
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/">
+                    <span class="button__text">Leetcode 216</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://www.abhigyankishor.ga/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span><span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://www.abhigyankishor.ga/bundle.min.a2c5b062c87998f04d1b5dfb6a89a1b2d79786c21d0cb63a05e8a2082984b64b77d80955e3b97eab17273775162ba372511b711fea2f7608f216e68a67bb22d6.js" integrity="sha512-osWwYsh5mPBNG137aomhsteXhsIdDLY6BeiiCCmEtkt32AlV47l&#43;qxcnN3UWK6NyURtxH&#43;ovdgjyFuaKZ7si1g=="></script>
+
+
+
+    </body>
+</html>

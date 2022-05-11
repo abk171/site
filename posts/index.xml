@@ -6,8 +6,115 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 10 May 2022 12:39:01 +0300</lastBuildDate>
+        <lastBuildDate>Wed, 11 May 2022 18:54:28 +0300</lastBuildDate>
         <atom:link href="https://www.abhigyankishor.ga/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Leetcode 1641</title>
+            <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</link>
+            <pubDate>Wed, 11 May 2022 18:54:28 +0300</pubDate>
+            
+            <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</guid>
+            <description>Count Sorted Vowel Strings Head on over here to try the problem for yourself.
+Hint says back-tracking, solutions say dynamic programming 😅.
+Back-tracking Algorithm The goal is to get all sorted combinations of the vowels for a string of length n. I set up a count variable outside the functions to ensure it stays out of scope for all the recursive calls. The helper() function recieves the previous index and remaining charaters.</description>
+            <content type="html"><![CDATA[<h2 id="count-sorted-vowel-strings">Count Sorted Vowel Strings</h2>
+<p>Head on over <a href="https://leetcode.com/problems/count-sorted-vowel-strings">here</a> to try the problem for yourself.</p>
+<p>Hint says <strong>back-tracking</strong>, solutions say <strong>dynamic programming</strong> 😅.</p>
+<h3 id="back-tracking">Back-tracking</h3>
+<h4 id="algorithm">Algorithm</h4>
+<p>The goal is to get all sorted combinations of the vowels for a string of length <code>n</code>. I set up a <code>count</code> variable outside the functions to ensure it stays out of scope for all the recursive calls. The <code>helper()</code> function recieves the previous index and remaining charaters. <code>helper()</code> loops till 4 (because there are 5 vowels). Everytime, <code>n==0</code>, increment <code>counter</code>.</p>
+<h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">countVowelStrings</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    helper<span style="color:#f92672">(</span>n<span style="color:#f92672">,</span>0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">helper</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>n <span style="color:#f92672">&lt;=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      count<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(;</span> index <span style="color:#f92672">&lt;</span> 5<span style="color:#f92672">;</span> index<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      helper<span style="color:#f92672">(</span>n <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> index<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// index not decremented because same 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// letters are valid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h4 id="algorithm-1">Algorithm</h4>
+<p>The following pattern explains the intuition behind this approach.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>e</th>
+<th>i</th>
+<th>o</th>
+<th>u</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n = 1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>n = 2</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>n = 3</td>
+<td>15</td>
+<td>10</td>
+<td>6</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>:</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The last string will always be <code>uuuu.. n times</code>. Every other string will occur count of previous + count of next.</p>
+<h4 id="code-1">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">countVowelStrings</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> store <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>5<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> store<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> 
+</span></span><span style="display:flex;"><span>    store<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// This is the base condition when n = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// so we check for n &gt; 1 in the while
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>n<span style="color:#f92672">--</span> <span style="color:#f92672">&gt;</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 3<span style="color:#f92672">;</span> i <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      store<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> store<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// follow the pattern :)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// i was giving i-1 and 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// was really confused
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> store<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">+=</span> store<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>Leetcode 216</title>

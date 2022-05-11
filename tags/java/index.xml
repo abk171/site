@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 10 May 2022 12:39:01 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 18:54:28 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 1641</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</link>
+      <pubDate>Wed, 11 May 2022 18:54:28 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</guid>
+      <description>Count Sorted Vowel Strings Head on over here to try the problem for yourself.
+Hint says back-tracking, solutions say dynamic programming 😅.
+Back-tracking Algorithm The goal is to get all sorted combinations of the vowels for a string of length n. I set up a count variable outside the functions to ensure it stays out of scope for all the recursive calls. The helper() function recieves the previous index and remaining charaters.</description>
+    </item>
+    
     <item>
       <title>Leetcode 216</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</link>
@@ -107,17 +118,6 @@ Algorithm The goal is to find the points where the array becomes unsorted. We us
       <description>Sort Array by Parity Head on over here to try the problem for yourself.
 I attempted a two-pointer approach to try and solve it.
 Algorithm The goal is to try to return the parity array in one pass. For this reason, I create a new array result[] and two pointers, evenPtr, pointing to the start of result[] and oddPtr, pointing to the end of result[]. Now I loop over the initial array.</description>
-    </item>
-    
-    <item>
-      <title>Leetcode 844</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-844/</link>
-      <pubDate>Sun, 01 May 2022 17:55:32 +0300</pubDate>
-      
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-844/</guid>
-      <description>Backspace String Compare Head on over here to try the problem for yourself.
-There are a few ways discussed in the solutions. I will try to explain the two-pointer method.
-Algorithm The goal is to try to build the resultant string in one pass. For this reason, we will iterate over the string backwards. If we encounter #, we simply skip the first valid character that follows. Ofcourse, the caveats are considering more backspaces (#) than actual words, in which case we simply get an empty string.</description>
     </item>
     
   </channel>
