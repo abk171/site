@@ -44,7 +44,8 @@ Back-tracking Algorithm The goal is to get all sorted combinations of the vowels
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h4 id="algorithm-1">Algorithm</h4>
+</span></span></code></pre></div><h3 id="dynamic-programming">Dynamic Programming</h3>
+<h4 id="algorithm-1">Algorithm</h4>
 <p>The following pattern explains the intuition behind this approach.</p>
 <table>
 <thead>
