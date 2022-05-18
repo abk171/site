@@ -4,7 +4,7 @@ Personal blog/site wip :)
 ## To-do:
 * [ ] Improve about.. add projects and such
 * [ ] CI/CD
-* [ ] Improve the tags system
+
 
 ## Done:
 * [x] change theme
@@ -24,7 +24,9 @@ Personal blog/site wip :)
   * [emoji cheatsheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
   * However, if you are passing something in the config.toml and want emojis then use `emojify` as shown in [here](https://stackoverflow.com/questions/60161106/how-can-i-insert-an-emoji-on-config-toml-in-hugo-rendered-website)
 * [x] Maybe google analytics?
-  * All done! check out [this](https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/) blog post to see how I did it :)
+  * ~~All done! check out [this](https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/) blog post to see how I did it :)~~
+  * Turns out hugo already has a good [template](https://gohugo.io/templates/internal/) for it.
+  * Best to use with (hugo.IsProduction) to avoid google_analytics in localhost.
 * [x] Google Site Verification
   * I think this is a by-product of google analytics
   * The crawl request was successful and google is aware of my webpage :) 
@@ -32,3 +34,6 @@ Personal blog/site wip :)
   * will slowly update the other posts as well.
   * updated fronmatter so it looks much better now.
 
+* [x] Improve the tags system
+  * Tags now show on all list pages. For now it works.
+  * Media query added so phone gets a slightly different layout :)

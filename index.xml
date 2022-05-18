@@ -54,18 +54,6 @@ Algorithm The goal is to build an iterator over the provided nestedList. So we n
     </item>
     
     <item>
-      <title>Google Analytics and Hugo</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/</link>
-      <pubDate>Sat, 07 May 2022 21:41:41 +0300</pubDate>
-      
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/google-analytics-and-hugo/</guid>
-      <description>So you want to add GA4 to your Hugo website? Here is a step-by-step guide to adding Google Analytics to your Hugo website.
-  Setup a Google Analytics account   Head over here and make an account (or sign in if you already have one).
-Create a property (accessed through admin), add a stream, and point it to your site URL.
-Once done, head over to admin &amp;gt; property &amp;gt; Data Streams and go to your newly created stream.</description>
-    </item>
-    
-    <item>
       <title>Leetcode 456</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</link>
       <pubDate>Sat, 07 May 2022 16:43:52 +0300</pubDate>
@@ -118,6 +106,17 @@ Algorithm The goal is to implement a stack using the basic queue features provid
       <description>Max Number of K-sum Pairs Head on over here to try the problem for yourself.
 This is a varaition of the famous two-sum problem that we have all struggled with 😅
 Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 581</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-581/</link>
+      <pubDate>Tue, 03 May 2022 17:10:04 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-581/</guid>
+      <description>Shortest Unsorted Continuous Subarray Head on over here to try the problem for yourself.
+I solved this problem using a two-pointer method.
+Algorithm The goal is to find the points where the array becomes unsorted. We use two loops, one to find the end of the unsorted sub-array and another to find the start of the unsorted sub-array. start = end = -1 as a way to check if they were updated or not during the loops.</description>
     </item>
     
   </channel>
