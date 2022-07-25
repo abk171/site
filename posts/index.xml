@@ -6,8 +6,149 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 11 May 2022 18:54:28 +0300</lastBuildDate>
+        <lastBuildDate>Fri, 24 Jun 2022 12:23:58 +0300</lastBuildDate>
         <atom:link href="https://www.abhigyankishor.ga/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Extending Fast(er) Downloads</title>
+            <link>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</link>
+            <pubDate>Fri, 24 Jun 2022 12:23:58 +0300</pubDate>
+            
+            <guid>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</guid>
+            <description>Fast(er) downloads from Google Earth Engine: Tiling This series was inspired by this article by Noel Gorelick. I will try and apply his article for a more specific use case of downloading satellite imagery for a large region of interest. This article requires an understanding of the limitations of earth engine, particularly ee.Image.getDownloadURL(), because it is aimed at providing a work-around. Today we discuss the first step towards big downloads, tiling the region of interest.</description>
+            <content type="html"><![CDATA[<h2 id="faster-downloads-from-google-earth-engine-tiling">Fast(er) downloads from Google Earth Engine: Tiling</h2>
+<p>This series was inspired by <a href="https://gorelick.medium.com/fast-er-downloads-a2abd512aa26">this</a> article by Noel Gorelick. I will try and apply his article for a more specific use case of downloading satellite imagery for a large region of interest. This article requires an understanding of the limitations of earth engine, particularly <a href="https://developers.google.com/earth-engine/apidocs/ee-image-getdownloadurl"><code>ee.Image.getDownloadURL()</code></a>, because it is aimed at providing a work-around. Today we discuss the first step towards big downloads, <strong>tiling the region of interest</strong>.</p>
+<h3 id="overview">Overview</h3>
+<p>This whole approach revolves around one function to facilitate parallel downloads, i.e. <code>ee.FeatureCollection.aggregate_array('.geo').getInfo()</code>. This is because, <code>aggregate_array()</code> returns a <em>list</em>, which can be passed on to <code>map()</code> or <code>starmap()</code> (in python) to be called in parallel. So any fast earth-engine downloader will have the following structure:</p>
+<ol>
+<li><strong>getTiles()</strong> : Returns the geometries of the tiles</li>
+<li><strong>getImage() / getImageCollection()</strong> : Returns the image/images to be tiled</li>
+<li><strong>getChip()</strong> : Downloads individual chips. To be called parallely against the list of geometries discussed bove.</li>
+<li><strong>stitch()</strong> : stitches the tiles to final image</li>
+</ol>
+<h3 id="basic-tiling">Basic tiling</h3>
+<p>The aim of this process is to simply take a geometry and split it into smaller tiles. These tiles can later be used in chipping and downloading the satellite imagery.</p>
+<p>First, we create a grid over the area of interest, by using <code>ee.Geometry.coveringGrid()</code>. This function takes two arguments, <em>projection</em> and <em>scale</em>. The projection is ofcourse the projection of the region of interest. However, the scale, is <em>10000</em>, because it is the maximum tile dimension supported by <code>ee.Image.getDownloadURL()</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// roi is an instance of ee.Geometry()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">grid</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">roi</span>.<span style="color:#a6e22e">coveringGrid</span>(<span style="color:#a6e22e">roi</span>.<span style="color:#a6e22e">projection</span>(), <span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">grid</span>)
+</span></span></code></pre></div><p>This results in the following output:
+<img src="/faster-downloads/basic_tiling.png" alt="basic_tiling"></p>
+<p>For smaller regions (about 200-1000 sq.km), this solution should be sufficiently quick to download the tiles and re-stitch.</p>
+<h3 id="improved-tiling">Improved tiling</h3>
+<p>For larger regions, we can go one step further, by clipping the tiles to the region of interest. This way we only download tiles containing useful information. This comes with a few caveats. Clipping is done using <code>ee.Feature.intersection()</code> which accepts three arguments, <em>right</em>, <em>maxError</em> and <em>proj</em> and returns any <code>ee.Geometry()</code>. However, for the sake of simplicity, we only want polygons. So we apply a filter to the final collection to remove any unwanted geometries.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Create tiles by clipping the grid to the intersection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tiles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">grid</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">cell</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Feature</span>(<span style="color:#a6e22e">cell</span>).<span style="color:#a6e22e">intersection</span>(<span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Feature</span>(<span style="color:#a6e22e">roi</span>), <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">ErrorMargin</span>(<span style="color:#ae81ff">1</span>), <span style="color:#a6e22e">roi</span>.<span style="color:#a6e22e">projection</span>())
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Filter tiles based on their geometry. We only want the polygons.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// First set a property &#39;geo&#39; as the type of the geometry of the tile
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">tiles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tiles</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">tile</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tile</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;geo&#39;</span>, <span style="color:#a6e22e">tile</span>.<span style="color:#a6e22e">geometry</span>().<span style="color:#a6e22e">type</span>())
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Next, return those tiles with &#39;geo&#39; = &#39;Polygon&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">tiles_fil</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tiles</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Filter</span>.<span style="color:#a6e22e">eq</span>(<span style="color:#e6db74">&#39;geo&#39;</span>, <span style="color:#e6db74">&#39;Polygon&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">tiles_fil</span>, {<span style="color:#e6db74">&#39;color&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;blue&#39;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;tiles&#39;</span>, <span style="color:#a6e22e">tiles</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;filtered tiles&#39;</span>, <span style="color:#a6e22e">tiles_fil</span>)
+</span></span></code></pre></div><p>This gives the following output:
+<img src="/faster-downloads/improved_tiling.png" alt="improved_tiling"></p>
+<p>As you can see, we have clipped the tiles to the required region of interest. Further we have reduced the number of tiles slightly which should provide slight improvement to the downloads. This method delivers satisfactory results for slightly larger regions, i.e. 1,000-10,000 sq.km.</p>
+<h3 id="advanced-tiling">Advanced tiling</h3>
+<p>In general, the above method is the go-to for big downloads, given enough time. I have tested the tesselation method above for country sized (Ghana) mosaics and it gives me the final image in about ~10 minutes. However, you may be interested in single day pictures of the region of interest. Often times, the swaths from satellite imagery are not enough to cover the large region of interest. In these cases, you can improve the focus of the downloader by providing tiles where the image exists.</p>
+<p>Therefore, we convert the raster image to a vector (geometry) and create tiles over them. I found this to be easiest using the <a href="https://developers.google.com/earth-engine/apidocs/ee-image-reducetovectors"><code>ee.Image.reduceToVectors()</code></a>. We iterate over the <code>ee.FeatureCollection()</code> returned and perform the above tiling algorithm on each <code>ee.Feature()</code>.</p>
+<p>Alternatively, we can also create a <code>coveringGrid()</code> over the initial area and filter tiles intersecting with the result of <code>ee.Image.reduceToVectors()</code>.</p>
+<p>Ofcourse, this comes with an overhead per image. The tiling is done dynamically and <code>ee.Image.reduceToVectors()</code> is susceptible to exceeding memory limits. However, for large areas, this significantly reduces the number of tiles created and therefore the download time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Preparing the collection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">collection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">ImageCollection</span>(<span style="color:#e6db74">&#39;COPERNICUS/S1_GRD&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">filterDate</span>(<span style="color:#e6db74">&#39;2019-08-30&#39;</span>, <span style="color:#e6db74">&#39;2019-09-15&#39;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Filter</span>.<span style="color:#a6e22e">listContains</span>(<span style="color:#e6db74">&#39;transmitterReceiverPolarisation&#39;</span>, <span style="color:#e6db74">&#39;VV&#39;</span>))
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Filter</span>.<span style="color:#a6e22e">listContains</span>(<span style="color:#e6db74">&#39;transmitterReceiverPolarisation&#39;</span>, <span style="color:#e6db74">&#39;VH&#39;</span>))
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">filterBounds</span>(<span style="color:#a6e22e">roi</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">coll_list</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">toList</span>(<span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">size</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// This code to mosaic the collection by dates
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">unique_dates</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">coll_list</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">image</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Image</span>(<span style="color:#a6e22e">image</span>).<span style="color:#a6e22e">date</span>().<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;YYYY-MM-dd&#39;</span>)
+</span></span><span style="display:flex;"><span>}).<span style="color:#a6e22e">distinct</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mosaic_by_date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">unique_dates</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">date</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ee</span>.Date(<span style="color:#a6e22e">date</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">filterDate</span>(<span style="color:#a6e22e">date</span>, <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">advance</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;day&#39;</span>)).<span style="color:#a6e22e">mosaic</span>()
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// We get the final image
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">img</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Image</span>(<span style="color:#a6e22e">mosaic_by_date</span>.<span style="color:#a6e22e">get</span>(<span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create the vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">img</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">img_abs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;VH&#39;</span>).<span style="color:#a6e22e">abs</span>()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">img_set</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img_abs</span>.<span style="color:#a6e22e">and</span>(<span style="color:#a6e22e">img_abs</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// This is important to reduce computation over the featureCollection() returned 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// by the reduceToVectors() below
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// To see an example, use a sentinel-2 image instead :)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">features</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img_set</span>.<span style="color:#a6e22e">reduceToVectors</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10000</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geometry</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">roi</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">bestEffort</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Tiling is not as straight-forward because of un-packing of ee.List()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tiles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">features</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">feature</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">feature</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Feature</span>(<span style="color:#a6e22e">feature</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">grid</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">feature</span>.<span style="color:#a6e22e">geometry</span>().<span style="color:#a6e22e">coveringGrid</span>(<span style="color:#a6e22e">roi</span>.<span style="color:#a6e22e">projection</span>(), <span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cells</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">grid</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">tile</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Feature</span>(<span style="color:#a6e22e">tile</span>.<span style="color:#a6e22e">intersection</span>(<span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Feature</span>(<span style="color:#a6e22e">roi</span>), <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">ErrorMargin</span>(<span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">FeatureCollection</span>(<span style="color:#a6e22e">cells</span>.<span style="color:#a6e22e">toList</span>(<span style="color:#a6e22e">cells</span>.<span style="color:#a6e22e">size</span>()))
+</span></span><span style="display:flex;"><span>}).<span style="color:#a6e22e">flatten</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Alternatively, we can also filter grid tiles that intersect with the features
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// var grid = roi.coveringGrid(roi.projection(), 10000)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// var tiles = features.map(function(feat) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//   feat = ee.Feature(feat)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//   return grid.filterBounds(feat.geometry())
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// }).flatten()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// You may adapt the above code to clip to the region of interest.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Again, filtering tiles to remove non-polygons
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">tiles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tiles</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">tile</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tile</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;geo_type&#39;</span>, <span style="color:#a6e22e">tile</span>.<span style="color:#a6e22e">geometry</span>().<span style="color:#a6e22e">type</span>())
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tiles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tiles</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Filter</span>.<span style="color:#a6e22e">eq</span>(<span style="color:#e6db74">&#39;geo_type&#39;</span>, <span style="color:#e6db74">&#39;Polygon&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">tiles</span>)
+</span></span></code></pre></div><p>This gives the following ouput:</p>
+<p><img src="/faster-downloads/advanced_tiling.png" alt="advanced_tiling"></p>
+<p>As you can see, the tiling is localized to the raster and results in significantly less tiles generated.</p>
+<h3 id="final-thoughts">Final thoughts</h3>
+<p>Any downloader script should focus on the speed of the downloads as a whole. The computation times leading up to the final download (using <code>ee.Image.getDownloadURL()</code>) usually determine and bottleneck the speed of the downloader. With that in mind, consider the following:</p>
+<ol>
+<li>Reduce <code>getInfo()</code> calls in the python API to absolute minimum. If they result in <code>connection closed</code> errors, try to simplify the computations. If still failing, encapsulate in retries.</li>
+<li>Simplify the incoming region of interest. This has a cascading effect on all the operations in tiling and significantly increases download speed.</li>
+<li>Consider downloading small dimension sized tiles (eg. 256x256 or 512x512) to reduce download size.</li>
+</ol>
+<p>As an exercise, using fixed dimension tiles, try to determine the best scale of the <code>coveringGrid()</code> :) (and let me know :P)</p>
+<h3 id="summary">Summary</h3>
+<p>In conclusion, we have learned how to create tiles and easily download large images. With very little external tooling we have greatly extended the knowledge imparted by Noel Gorelick in downloading parts of an image in parallel.</p>
+<p>The next article in this series will discuss stitching said downloaded tiles using GDAL binaries, or using existing programs like QGIS.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Leetcode 1641</title>

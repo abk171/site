@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 11 May 2022 18:54:28 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Jun 2022 12:23:58 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Extending Fast(er) Downloads</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</link>
+      <pubDate>Fri, 24 Jun 2022 12:23:58 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</guid>
+      <description>Fast(er) downloads from Google Earth Engine: Tiling This series was inspired by this article by Noel Gorelick. I will try and apply his article for a more specific use case of downloading satellite imagery for a large region of interest. This article requires an understanding of the limitations of earth engine, particularly ee.Image.getDownloadURL(), because it is aimed at providing a work-around. Today we discuss the first step towards big downloads, tiling the region of interest.</description>
+    </item>
+    
     <item>
       <title>Leetcode 1641</title>
       <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</link>
@@ -106,17 +115,6 @@ Algorithm The goal is to implement a stack using the basic queue features provid
       <description>Max Number of K-sum Pairs Head on over here to try the problem for yourself.
 This is a varaition of the famous two-sum problem that we have all struggled with 😅
 Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:</description>
-    </item>
-    
-    <item>
-      <title>Leetcode 581</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-581/</link>
-      <pubDate>Tue, 03 May 2022 17:10:04 +0300</pubDate>
-      
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-581/</guid>
-      <description>Shortest Unsorted Continuous Subarray Head on over here to try the problem for yourself.
-I solved this problem using a two-pointer method.
-Algorithm The goal is to find the points where the array becomes unsorted. We use two loops, one to find the end of the unsorted sub-array and another to find the start of the unsorted sub-array. start = end = -1 as a way to check if they were updated or not during the loops.</description>
     </item>
     
   </channel>
