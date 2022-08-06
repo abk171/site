@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 24 Jun 2022 12:23:58 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Aug 2022 00:14:16 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Percentage coverage of satellite imagery over region of interest</title>
+      <link>https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</link>
+      <pubDate>Sat, 06 Aug 2022 00:14:16 +0300</pubDate>
+      
+      <guid>https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</guid>
+      <description>Earth Engine tricks: Satellite imagery coverage over a region of interest In my work with Google Earth Engine, over the last few months, I like to believe that I have learnt a few tricks to interact with it. I recently received a query about finding the percentage coverage of satellite imagery over a region of interest. In this post, I would like share a robust approach towards this problem.
+~TLDR I use ee.</description>
+    </item>
+    
     <item>
       <title>Extending Fast(er) Downloads</title>
       <link>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</link>
@@ -104,17 +114,6 @@ k = 2 s = &amp;#34;abbac&amp;#34; the result must be c. Iteration 1: remove bb =
       <description>Implementing Stacks Using Queues Head on over here to try the problem for yourself.
 The solution talks about using 2 queues, which frankly I don&amp;rsquo;t understand :&amp;rsquo;). I used a single queue to implement this problem.
 Algorithm The goal is to implement a stack using the basic queue features provided such as push(), peek() and pop(). The easiest way to implement this is by inserting elements in reverse order. Then the queue will pop the elements like a stack.</description>
-    </item>
-    
-    <item>
-      <title>Leetcode 1769</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</link>
-      <pubDate>Wed, 04 May 2022 14:27:17 +0300</pubDate>
-      
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</guid>
-      <description>Max Number of K-sum Pairs Head on over here to try the problem for yourself.
-This is a varaition of the famous two-sum problem that we have all struggled with 😅
-Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:</description>
     </item>
     
   </channel>
