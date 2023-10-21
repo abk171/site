@@ -4,7 +4,7 @@ Personal blog/site wip :)
 ## To-do:
 * [ ] Improve about.. add projects and such
 * [ ] CI/CD
-
+* [ ] Pull requests
 
 ## Done:
 * [x] change theme
