@@ -9,7 +9,7 @@
 <meta name="keywords" content=", tutorial, GEE, GIS" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/" />
+<link rel="canonical" href="https://abk171.github.io/site/posts/2022/06/extending-faster-downloads/" />
 
 
     <title>
@@ -25,16 +25,16 @@
 
 
 
-<link rel="stylesheet" href="https://www.abhigyankishor.ga/main.0bf75a616c9371f193553670ad96bcfef890ccdb518a30c0844199d72dcb97ad.css">
+<link rel="stylesheet" href="https://abk171.github.io/site/main.0bf75a616c9371f193553670ad96bcfef890ccdb518a30c0844199d72dcb97ad.css">
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://www.abhigyankishor.ga/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://www.abhigyankishor.ga/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://www.abhigyankishor.ga/favicon-16x16.png">
-    <link rel="manifest" href="https://www.abhigyankishor.ga/site.webmanifest">
-    <link rel="mask-icon" href="https://www.abhigyankishor.ga/safari-pinned-tab.svg" color="">
-    <link rel="shortcut icon" href="https://www.abhigyankishor.ga/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://abk171.github.io/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://abk171.github.io/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://abk171.github.io/site/favicon-16x16.png">
+    <link rel="manifest" href="https://abk171.github.io/site/site.webmanifest">
+    <link rel="mask-icon" href="https://abk171.github.io/site/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://abk171.github.io/site/favicon.ico">
     <meta name="msapplication-TileColor" content="">
 
 
@@ -55,7 +55,7 @@
     <meta property="og:title" content="Extending Fast(er) Downloads" />
 <meta property="og:description" content="Fast(er) downloads from Google Earth Engine: Tiling This series was inspired by this article by Noel Gorelick. I will try and apply his article for a more specific use case of downloading satellite imagery for a large region of interest. This article requires an understanding of the limitations of earth engine, particularly ee.Image.getDownloadURL(), because it is aimed at providing a work-around. Today we discuss the first step towards big downloads, tiling the region of interest." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/" /><meta property="og:image" content="https://developers.google.com/earth-engine/images/og_social_media.png" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://abk171.github.io/site/posts/2022/06/extending-faster-downloads/" /><meta property="og:image" content="https://developers.google.com/earth-engine/images/og_social_media.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-24T12:23:58+03:00" />
 <meta property="article:modified_time" content="2022-06-24T12:23:58+03:00" /><meta property="og:site_name" content="Abhigyan Kishor" />
 
@@ -65,7 +65,7 @@
 
 
 
-    <meta property="article:published_time" content="2022-06-24 12:23:58 &#43;0300 &#43;03" />
+    <meta property="article:published_time" content="2022-06-24 12:23:58 &#43;0300 &#43;0300" />
 
 
 
@@ -98,7 +98,7 @@ if (!doNotTrack) {
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://www.abhigyankishor.ga/" style="text-decoration: none;">
+        <a href="https://abk171.github.io/site/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">&gt;</span>
@@ -116,7 +116,7 @@ if (!doNotTrack) {
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://www.abhigyankishor.ga/about">About</a></li><li><a href="https://www.abhigyankishor.ga/posts">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://abk171.github.io/site/about">About</a></li><li><a href="https://abk171.github.io/site/posts">Posts</a></li>
     </ul>
 </nav>
 
@@ -156,7 +156,7 @@ if (!doNotTrack) {
 
     <article>
       <h1 class="post-title">
-        <a href="https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/">Extending Fast(er) Downloads</a>
+        <a href="https://abk171.github.io/site/posts/2022/06/extending-faster-downloads/">Extending Fast(er) Downloads</a>
       </h1>
 
       
@@ -204,7 +204,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">grid</span>)
 </span></span></code></pre></div><p>This results in the following output:
-<img src="https://www.abhigyankishor.ga/faster-downloads/basic_tiling.png" alt="basic_tiling"></p>
+<img src="https://abk171.github.io/site/faster-downloads/basic_tiling.png" alt="basic_tiling"></p>
 <p>For smaller regions (about 200-1000 sq.km), this solution should be sufficiently quick to download the tiles and re-stitch.</p>
 <h3 id="improved-tiling">Improved tiling</h3>
 <p>For larger regions, we can go one step further, by clipping the tiles to the region of interest. This way we only download tiles containing useful information. This comes with a few caveats. Clipping is done using <code>ee.Feature.intersection()</code> which accepts three arguments, <em>right</em>, <em>maxError</em> and <em>proj</em> and returns any <code>ee.Geometry()</code>. However, for the sake of simplicity, we only want polygons. So we apply a filter to the final collection to remove any unwanted geometries.</p>
@@ -226,7 +226,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;tiles&#39;</span>, <span style="color:#a6e22e">tiles</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;filtered tiles&#39;</span>, <span style="color:#a6e22e">tiles_fil</span>)
 </span></span></code></pre></div><p>This gives the following output:
-<img src="https://www.abhigyankishor.ga/faster-downloads/improved_tiling.png" alt="improved_tiling"></p>
+<img src="https://abk171.github.io/site/faster-downloads/improved_tiling.png" alt="improved_tiling"></p>
 <p>As you can see, we have clipped the tiles to the required region of interest. Further we have reduced the number of tiles slightly which should provide slight improvement to the downloads. This method delivers satisfactory results for slightly larger regions, i.e. 1,000-10,000 sq.km.</p>
 <h3 id="advanced-tiling">Advanced tiling</h3>
 <p>In general, the above method is the go-to for big downloads, given enough time. I have tested the tesselation method above for country sized (Ghana) mosaics and it gives me the final image in about ~10 minutes. However, you may be interested in single day pictures of the region of interest. Often times, the swaths from satellite imagery are not enough to cover the large region of interest. In these cases, you can improve the focus of the downloader by providing tiles where the image exists.</p>
@@ -303,7 +303,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">tiles</span>)
 </span></span></code></pre></div><p>This gives the following ouput:</p>
-<p><img src="https://www.abhigyankishor.ga/faster-downloads/advanced_tiling.png" alt="advanced_tiling"></p>
+<p><img src="https://abk171.github.io/site/faster-downloads/advanced_tiling.png" alt="advanced_tiling"></p>
 <p>As you can see, the tiling is localized to the raster and results in significantly less tiles generated.</p>
 <h3 id="final-thoughts">Final thoughts</h3>
 <p>Any downloader script should focus on the speed of the downloads as a whole. The computation times leading up to the final download (using <code>ee.Image.getDownloadURL()</code>) usually determine and bottleneck the speed of the downloader. With that in mind, consider the following:</p>
@@ -327,9 +327,9 @@ if (!doNotTrack) {
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 
-        <span class="tag"><a href="https://www.abhigyankishor.ga/tags/tutorial/">tutorial</a></span>
-        <span class="tag"><a href="https://www.abhigyankishor.ga/tags/gee/">GEE</a></span>
-        <span class="tag"><a href="https://www.abhigyankishor.ga/tags/gis/">GIS</a></span>
+        <span class="tag"><a href="https://abk171.github.io/site/tags/tutorial/">tutorial</a></span>
+        <span class="tag"><a href="https://abk171.github.io/site/tags/gee/">GEE</a></span>
+        <span class="tag"><a href="https://abk171.github.io/site/tags/gis/">GIS</a></span>
         
     </p>
 
@@ -354,7 +354,7 @@ if (!doNotTrack) {
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2022-06-24 12:23
+          2022-06-24 05:23
         
 
          
@@ -370,7 +370,7 @@ if (!doNotTrack) {
         <div class="pagination__buttons">
             
             <span class="button previous">
-                <a href="https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/">
+                <a href="https://abk171.github.io/site/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Percentage coverage of satellite imagery over region of interest</span>
                 </a>
@@ -379,7 +379,7 @@ if (!doNotTrack) {
 
             
             <span class="button next">
-                <a href="https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/">
+                <a href="https://abk171.github.io/site/posts/2022/05/leetcode-1641/">
                     <span class="button__text">Leetcode 1641</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -402,10 +402,10 @@ if (!doNotTrack) {
     
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2023</span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://www.abhigyankishor.ga/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://abk171.github.io/site/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
             
         </div>
     </div>
@@ -426,7 +426,7 @@ if (!doNotTrack) {
 
 
 
-<script type="text/javascript" src="https://www.abhigyankishor.ga/bundle.min.a2c5b062c87998f04d1b5dfb6a89a1b2d79786c21d0cb63a05e8a2082984b64b77d80955e3b97eab17273775162ba372511b711fea2f7608f216e68a67bb22d6.js" integrity="sha512-osWwYsh5mPBNG137aomhsteXhsIdDLY6BeiiCCmEtkt32AlV47l&#43;qxcnN3UWK6NyURtxH&#43;ovdgjyFuaKZ7si1g=="></script>
+<script type="text/javascript" src="https://abk171.github.io/site/bundle.min.a2c5b062c87998f04d1b5dfb6a89a1b2d79786c21d0cb63a05e8a2082984b64b77d80955e3b97eab17273775162ba372511b711fea2f7608f216e68a67bb22d6.js" integrity="sha512-osWwYsh5mPBNG137aomhsteXhsIdDLY6BeiiCCmEtkt32AlV47l&#43;qxcnN3UWK6NyURtxH&#43;ovdgjyFuaKZ7si1g=="></script>
 
 
 

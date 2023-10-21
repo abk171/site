@@ -10,7 +10,7 @@
 <meta name="keywords" content=", tutorial, GEE, GIS" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/" />
+<link rel="canonical" href="https://abk171.github.io/site/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/" />
 
 
     <title>
@@ -26,16 +26,16 @@
 
 
 
-<link rel="stylesheet" href="https://www.abhigyankishor.ga/main.0bf75a616c9371f193553670ad96bcfef890ccdb518a30c0844199d72dcb97ad.css">
+<link rel="stylesheet" href="https://abk171.github.io/site/main.0bf75a616c9371f193553670ad96bcfef890ccdb518a30c0844199d72dcb97ad.css">
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://www.abhigyankishor.ga/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://www.abhigyankishor.ga/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://www.abhigyankishor.ga/favicon-16x16.png">
-    <link rel="manifest" href="https://www.abhigyankishor.ga/site.webmanifest">
-    <link rel="mask-icon" href="https://www.abhigyankishor.ga/safari-pinned-tab.svg" color="">
-    <link rel="shortcut icon" href="https://www.abhigyankishor.ga/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://abk171.github.io/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://abk171.github.io/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://abk171.github.io/site/favicon-16x16.png">
+    <link rel="manifest" href="https://abk171.github.io/site/site.webmanifest">
+    <link rel="mask-icon" href="https://abk171.github.io/site/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://abk171.github.io/site/favicon.ico">
     <meta name="msapplication-TileColor" content="">
 
 
@@ -59,7 +59,7 @@
 <meta property="og:description" content="Earth Engine tricks: Satellite imagery coverage over a region of interest In my work with Google Earth Engine, over the last few months, I like to believe that I have learnt a few tricks to interact with it. I recently received a query about finding the percentage coverage of satellite imagery over a region of interest. In this post, I would like share a robust approach towards this problem.
 ~TLDR I use ee." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/" /><meta property="og:image" content="https://developers.google.com/earth-engine/images/og_social_media.png" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://abk171.github.io/site/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/" /><meta property="og:image" content="https://developers.google.com/earth-engine/images/og_social_media.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-06T00:14:16+03:00" />
 <meta property="article:modified_time" content="2022-08-06T00:14:16+03:00" /><meta property="og:site_name" content="Abhigyan Kishor" />
 
@@ -69,7 +69,7 @@
 
 
 
-    <meta property="article:published_time" content="2022-08-06 00:14:16 &#43;0300 &#43;03" />
+    <meta property="article:published_time" content="2022-08-06 00:14:16 &#43;0300 &#43;0300" />
 
 
 
@@ -102,7 +102,7 @@ if (!doNotTrack) {
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://www.abhigyankishor.ga/" style="text-decoration: none;">
+        <a href="https://abk171.github.io/site/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">&gt;</span>
@@ -120,7 +120,7 @@ if (!doNotTrack) {
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://www.abhigyankishor.ga/about">About</a></li><li><a href="https://www.abhigyankishor.ga/posts">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://abk171.github.io/site/about">About</a></li><li><a href="https://abk171.github.io/site/posts">Posts</a></li>
     </ul>
 </nav>
 
@@ -160,7 +160,7 @@ if (!doNotTrack) {
 
     <article>
       <h1 class="post-title">
-        <a href="https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/">Percentage coverage of satellite imagery over region of interest</a>
+        <a href="https://abk171.github.io/site/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/">Percentage coverage of satellite imagery over region of interest</a>
       </h1>
 
       
@@ -179,7 +179,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">geo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Geometry</span>.<span style="color:#a6e22e">Polygon</span>([[<span style="color:#f92672">-</span><span style="color:#ae81ff">92.52413532482498</span>,<span style="color:#ae81ff">29.068796610642462</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">89.18455628452989</span>,<span style="color:#ae81ff">28.914934845703456</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">87.33896350523439</span>,<span style="color:#ae81ff">29.833880931200852</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">84.43882690085657</span>,<span style="color:#ae81ff">29.145338554288642</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">82.24181129937064</span>,<span style="color:#ae81ff">25.078787199542987</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">76.96873224229702</span>,<span style="color:#ae81ff">22.505730359809384</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">74.15638961145261</span>,<span style="color:#ae81ff">20.954634119919458</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">72.61837753681915</span>,<span style="color:#ae81ff">20.296610892350177</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">69.93789091531232</span>,<span style="color:#ae81ff">22.017775662520798</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">76.17776624731441</span>,<span style="color:#ae81ff">26.42435799592542</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">78.99005257253476</span>,<span style="color:#ae81ff">27.987520768911722</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">80.74769589300101</span>,<span style="color:#ae81ff">30.441776535545372</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">80.22037485372631</span>,<span style="color:#ae81ff">32.094264391741454</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">76.00200769123495</span>,<span style="color:#ae81ff">34.154844709247236</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">75.12320016955083</span>,<span style="color:#ae81ff">36.87260703790422</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">73.36561096544423</span>,<span style="color:#ae81ff">39.63248806420696</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">70.28983921701152</span>,<span style="color:#ae81ff">40.97286069808757</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">69.05954874360211</span>,<span style="color:#ae81ff">41.76428108977483</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">69.32323127521587</span>,<span style="color:#ae81ff">43.12600140897638</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">66.77478039524175</span>,<span style="color:#ae81ff">43.95416885980774</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">65.9838286583204</span>,<span style="color:#ae81ff">43.06190207518716</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">58.86583883168352</span>,<span style="color:#ae81ff">45.699391313240426</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">60.62353801334703</span>,<span style="color:#ae81ff">47.33193089878859</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">65.10533579067283</span>,<span style="color:#ae81ff">48.21761281648529</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">69.58702361515375</span>,<span style="color:#ae81ff">47.62863414289759</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">82.17543615981589</span>,<span style="color:#ae81ff">45.683704906902776</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">82.83450615124401</span>,<span style="color:#ae81ff">46.08134637079505</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">84.59202315164083</span>,<span style="color:#ae81ff">46.89813657607063</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">87.06195698922187</span>,<span style="color:#ae81ff">48.14757501580384</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">90.06226008975369</span>,<span style="color:#ae81ff">48.62591472970412</span>]])
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">geo</span>, {<span style="color:#e6db74">&#39;color&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;green&#39;</span>})
 </span></span></code></pre></div><p>Here is the region of interest.</p>
-<p><img src="https://www.abhigyankishor.ga/percentage-coverage/roi.png" alt="The region of interest"></p>
+<p><img src="https://abk171.github.io/site/percentage-coverage/roi.png" alt="The region of interest"></p>
 <p>I will now query Sentinel-2 for some satellite imagery over the region of interest.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s2_col</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">ImageCollection</span>(<span style="color:#e6db74">&#39;COPERNICUS/S2_SR&#39;</span>)
 </span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">filterDate</span>(<span style="color:#e6db74">&#39;2019-08-30&#39;</span>, <span style="color:#e6db74">&#39;2019-09-15&#39;</span>)
@@ -205,7 +205,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">img</span>, {<span style="color:#e6db74">&#39;bands&#39;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;B4&#39;</span>, <span style="color:#e6db74">&#39;B3&#39;</span>, <span style="color:#e6db74">&#39;B2&#39;</span>], <span style="color:#e6db74">&#39;min&#39;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;max&#39;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3000</span>})
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Map</span>.<span style="color:#a6e22e">addLayer</span>(<span style="color:#a6e22e">features</span>)
 </span></span></code></pre></div><p>Here are the image and the corresponding regions of interest.</p>
-<p><img src="https://www.abhigyankishor.ga/percentage-coverage/features_and_image.png" alt="The mosiacked image and feature collection"></p>
+<p><img src="https://abk171.github.io/site/percentage-coverage/features_and_image.png" alt="The mosiacked image and feature collection"></p>
 <p>Now we find the total area of features. This revolves around the <code>ee.FeatureCollection().aggregate_sum()</code> method, which finds the sum of a property of the individual features of the collection. So we first create a property <code>area</code>, and assign to it the area of the feature. Then we simply run <code>aggregate_sum()</code> over the feature collection and get the total area.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">features</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">features</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">feature</span>) {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">feature</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;area&#39;</span>, <span style="color:#a6e22e">feature</span>.<span style="color:#a6e22e">area</span>(<span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">ErrorMargin</span>(<span style="color:#ae81ff">1</span>)));
@@ -220,7 +220,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;Area of the region of interest&#39;</span>, <span style="color:#a6e22e">geo_area</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;% area covered&#39;</span>, <span style="color:#a6e22e">ratio</span>)
 </span></span></code></pre></div><p>Which gives me the following output:</p>
-<p><img src="https://www.abhigyankishor.ga/percentage-coverage/printouts.png" alt="The percentage of area covered"></p>
+<p><img src="https://abk171.github.io/site/percentage-coverage/printouts.png" alt="The percentage of area covered"></p>
 <p>Ofcourse, outputs could be beautified, but as such the areas are in <em>square meters</em>, (a quirk of the <code>ee.geometry.area()</code> function) and can be modified by <code>ee.Number.divide(1000000)</code> to represent <em>square kilometers</em> instead.</p>
 <p>The final code here:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">geo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">Geometry</span>.<span style="color:#a6e22e">Polygon</span>([[<span style="color:#f92672">-</span><span style="color:#ae81ff">92.52413532482498</span>,<span style="color:#ae81ff">29.068796610642462</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">89.18455628452989</span>,<span style="color:#ae81ff">28.914934845703456</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">87.33896350523439</span>,<span style="color:#ae81ff">29.833880931200852</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">84.43882690085657</span>,<span style="color:#ae81ff">29.145338554288642</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">82.24181129937064</span>,<span style="color:#ae81ff">25.078787199542987</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">76.96873224229702</span>,<span style="color:#ae81ff">22.505730359809384</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">74.15638961145261</span>,<span style="color:#ae81ff">20.954634119919458</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">72.61837753681915</span>,<span style="color:#ae81ff">20.296610892350177</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">69.93789091531232</span>,<span style="color:#ae81ff">22.017775662520798</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">76.17776624731441</span>,<span style="color:#ae81ff">26.42435799592542</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">78.99005257253476</span>,<span style="color:#ae81ff">27.987520768911722</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">80.74769589300101</span>,<span style="color:#ae81ff">30.441776535545372</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">80.22037485372631</span>,<span style="color:#ae81ff">32.094264391741454</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">76.00200769123495</span>,<span style="color:#ae81ff">34.154844709247236</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">75.12320016955083</span>,<span style="color:#ae81ff">36.87260703790422</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">73.36561096544423</span>,<span style="color:#ae81ff">39.63248806420696</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">70.28983921701152</span>,<span style="color:#ae81ff">40.97286069808757</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">69.05954874360211</span>,<span style="color:#ae81ff">41.76428108977483</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">69.32323127521587</span>,<span style="color:#ae81ff">43.12600140897638</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">66.77478039524175</span>,<span style="color:#ae81ff">43.95416885980774</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">65.9838286583204</span>,<span style="color:#ae81ff">43.06190207518716</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">58.86583883168352</span>,<span style="color:#ae81ff">45.699391313240426</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">60.62353801334703</span>,<span style="color:#ae81ff">47.33193089878859</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">65.10533579067283</span>,<span style="color:#ae81ff">48.21761281648529</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">69.58702361515375</span>,<span style="color:#ae81ff">47.62863414289759</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">82.17543615981589</span>,<span style="color:#ae81ff">45.683704906902776</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">82.83450615124401</span>,<span style="color:#ae81ff">46.08134637079505</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">84.59202315164083</span>,<span style="color:#ae81ff">46.89813657607063</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">87.06195698922187</span>,<span style="color:#ae81ff">48.14757501580384</span>],[<span style="color:#f92672">-</span><span style="color:#ae81ff">90.06226008975369</span>,<span style="color:#ae81ff">48.62591472970412</span>]])
@@ -273,7 +273,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;Area of the region of interest&#39;</span>, <span style="color:#a6e22e">geo_area</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;% area covered&#39;</span>, <span style="color:#a6e22e">ratio</span>)
 </span></span></code></pre></div><p>Changing the cloud cover tolerance to 100 gives us more satellite imagery and a larger percentage coverage.</p>
-<p><img src="https://www.abhigyankishor.ga/percentage-coverage/100cc.png" alt="100 cloudy pixel percentage"></p>
+<p><img src="https://abk171.github.io/site/percentage-coverage/100cc.png" alt="100 cloudy pixel percentage"></p>
 <h4 id="conclusion">Conclusion</h4>
 <p>In summary, we learnt how to use reduceToVectors() along with aggregate_sum() to come up with a robust approach towards calculating percentage of area covered by an image.</p>
 
@@ -287,9 +287,9 @@ if (!doNotTrack) {
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 
-        <span class="tag"><a href="https://www.abhigyankishor.ga/tags/tutorial/">tutorial</a></span>
-        <span class="tag"><a href="https://www.abhigyankishor.ga/tags/gee/">GEE</a></span>
-        <span class="tag"><a href="https://www.abhigyankishor.ga/tags/gis/">GIS</a></span>
+        <span class="tag"><a href="https://abk171.github.io/site/tags/tutorial/">tutorial</a></span>
+        <span class="tag"><a href="https://abk171.github.io/site/tags/gee/">GEE</a></span>
+        <span class="tag"><a href="https://abk171.github.io/site/tags/gis/">GIS</a></span>
         
     </p>
 
@@ -314,7 +314,7 @@ if (!doNotTrack) {
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2022-08-06 00:14
+          2022-08-05 17:14
         
 
          
@@ -332,7 +332,7 @@ if (!doNotTrack) {
 
             
             <span class="button next">
-                <a href="https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/">
+                <a href="https://abk171.github.io/site/posts/2022/06/extending-faster-downloads/">
                     <span class="button__text">Extending Fast(er) Downloads</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -355,10 +355,10 @@ if (!doNotTrack) {
     
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2023</span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span><a href="https://www.abhigyankishor.ga/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="https://abk171.github.io/site/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
             
         </div>
     </div>
@@ -379,7 +379,7 @@ if (!doNotTrack) {
 
 
 
-<script type="text/javascript" src="https://www.abhigyankishor.ga/bundle.min.a2c5b062c87998f04d1b5dfb6a89a1b2d79786c21d0cb63a05e8a2082984b64b77d80955e3b97eab17273775162ba372511b711fea2f7608f216e68a67bb22d6.js" integrity="sha512-osWwYsh5mPBNG137aomhsteXhsIdDLY6BeiiCCmEtkt32AlV47l&#43;qxcnN3UWK6NyURtxH&#43;ovdgjyFuaKZ7si1g=="></script>
+<script type="text/javascript" src="https://abk171.github.io/site/bundle.min.a2c5b062c87998f04d1b5dfb6a89a1b2d79786c21d0cb63a05e8a2082984b64b77d80955e3b97eab17273775162ba372511b711fea2f7608f216e68a67bb22d6.js" integrity="sha512-osWwYsh5mPBNG137aomhsteXhsIdDLY6BeiiCCmEtkt32AlV47l&#43;qxcnN3UWK6NyURtxH&#43;ovdgjyFuaKZ7si1g=="></script>
 
 
 

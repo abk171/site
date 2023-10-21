@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abhigyan Kishor</title>
-    <link>https://www.abhigyankishor.ga/</link>
+    <link>https://abk171.github.io/site/</link>
     <description>Recent content on Abhigyan Kishor</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 06 Aug 2022 00:14:16 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Aug 2022 00:14:16 +0300</lastBuildDate><atom:link href="https://abk171.github.io/site/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Percentage coverage of satellite imagery over region of interest</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</link>
+      <link>https://abk171.github.io/site/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</link>
       <pubDate>Sat, 06 Aug 2022 00:14:16 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</guid>
       <description>Earth Engine tricks: Satellite imagery coverage over a region of interest In my work with Google Earth Engine, over the last few months, I like to believe that I have learnt a few tricks to interact with it. I recently received a query about finding the percentage coverage of satellite imagery over a region of interest. In this post, I would like share a robust approach towards this problem.
 ~TLDR I use ee.</description>
     </item>
     
     <item>
       <title>Extending Fast(er) Downloads</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</link>
+      <link>https://abk171.github.io/site/posts/2022/06/extending-faster-downloads/</link>
       <pubDate>Fri, 24 Jun 2022 12:23:58 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/06/extending-faster-downloads/</guid>
       <description>Fast(er) downloads from Google Earth Engine: Tiling This series was inspired by this article by Noel Gorelick. I will try and apply his article for a more specific use case of downloading satellite imagery for a large region of interest. This article requires an understanding of the limitations of earth engine, particularly ee.Image.getDownloadURL(), because it is aimed at providing a work-around. Today we discuss the first step towards big downloads, tiling the region of interest.</description>
     </item>
     
     <item>
       <title>Leetcode 1641</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-1641/</link>
       <pubDate>Wed, 11 May 2022 18:54:28 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-1641/</guid>
       <description>Count Sorted Vowel Strings Head on over here to try the problem for yourself.
 Hint says back-tracking, solutions say dynamic programming 😅.
 Back-tracking Algorithm The goal is to get all sorted combinations of the vowels for a string of length n. I set up a count variable outside the functions to ensure it stays out of scope for all the recursive calls. The helper() function recieves the previous index and remaining charaters.</description>
@@ -40,10 +40,10 @@ Back-tracking Algorithm The goal is to get all sorted combinations of the vowels
     
     <item>
       <title>Leetcode 216</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-216/</link>
       <pubDate>Tue, 10 May 2022 12:39:01 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-216/</guid>
       <description>Combination Sum III Head on over here to try the problem for yourself.
 Another permutation based problem solved using back-tracking.
 Algorithm The goal is to get all combinations (without repeat) of k integers from 1-9 whose sum is n. To achieve this, simply backtrack and decrement n with the current integer. Also, to ensure no repeats, pass in the next integer to the recursive call.
@@ -52,10 +52,10 @@ Code public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; combinationSum3(int 
     
     <item>
       <title>Leetcode 17</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-17/</link>
       <pubDate>Mon, 09 May 2022 15:46:21 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-17/</guid>
       <description>Letter Combination of a Phone Number Head on over here to try the problem for yourself.
 Most permutation based problems seem to use a back-tracking solution, but don&amp;rsquo;t quote me on that 😅
 Algorithm The goal is to get all permutations of letters corresponding to a given phone number. First, we create a mapping of numbers and the corresponding letters. Then we simply set up a backtracking function helper() which will populate our result list with the required solutions.</description>
@@ -63,10 +63,10 @@ Algorithm The goal is to get all permutations of letters corresponding to a give
     
     <item>
       <title>Leetcode 341</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-341/</link>
       <pubDate>Sun, 08 May 2022 14:29:29 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-341/</guid>
       <description>Flatten Nested List Iterator Head on over here to try the problem for yourself.
 I spent way too long trying to figure out that they had already provided the NestedInteger interface XD. The solution is simply a recursion over the elements of nestedList.
 Algorithm The goal is to build an iterator over the provided nestedList. So we need to implement next() and hasNext() for the given nestedList. I approach this by converting the nestedList into an ArrayList.</description>
@@ -74,10 +74,10 @@ Algorithm The goal is to build an iterator over the provided nestedList. So we n
     
     <item>
       <title>Leetcode 456</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-456/</link>
       <pubDate>Sat, 07 May 2022 16:43:52 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-456/</guid>
       <description>132 Pattern Head on over here to try the problem for yourself.
 This one was so annoying :&amp;rsquo;(. I ended up following this tutorial for ironing out the final cases.
   Algorithm The goal is to maintain a descending monotonic stack to keep track of the minimum value present before each element in the stack. The ideal case is for the ith index to be as small as possible, the jth index to be as large as possible, and the kth index to be somewhere in between.</description>
@@ -85,20 +85,20 @@ This one was so annoying :&amp;rsquo;(. I ended up following this tutorial for i
     
     <item>
       <title>How to Custom Domain</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/how-to-custom-domain/</link>
       <pubDate>Fri, 06 May 2022 20:43:37 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/how-to-custom-domain/</guid>
       <description>So you want a custom domain name? Here is a step-by-step guide to how to get one (for free) from freenom. I use github pages to host my hugo website so the tutorial will focus on the relevant steps.
   Check availability of a domain name   In the search bar, type out the site name that you want, say example.com. It should give you a few alternatives such as shown in the picture.</description>
     </item>
     
     <item>
       <title>Leetcode 1209</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-1209/</link>
       <pubDate>Fri, 06 May 2022 12:49:34 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-1209/</guid>
       <description>Remove All Adjacent Duplicates in String II Head on over here to try to the problem for yourself.
 The problem requires a stack based solution.
 Algorithm The goal is the find the shortest string possible by removing k duplicated adjacent characters. A simple problem case is illustrated:
@@ -107,10 +107,10 @@ k = 2 s = &amp;#34;abbac&amp;#34; the result must be c. Iteration 1: remove bb =
     
     <item>
       <title>Leetcode 225</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-225/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-225/</link>
       <pubDate>Thu, 05 May 2022 15:39:24 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-225/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-225/</guid>
       <description>Implementing Stacks Using Queues Head on over here to try the problem for yourself.
 The solution talks about using 2 queues, which frankly I don&amp;rsquo;t understand :&amp;rsquo;). I used a single queue to implement this problem.
 Algorithm The goal is to implement a stack using the basic queue features provided such as push(), peek() and pop(). The easiest way to implement this is by inserting elements in reverse order. Then the queue will pop the elements like a stack.</description>

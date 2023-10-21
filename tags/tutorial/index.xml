@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tutorial on Abhigyan Kishor</title>
-    <link>https://www.abhigyankishor.ga/tags/tutorial/</link>
+    <link>https://abk171.github.io/site/tags/tutorial/</link>
     <description>Recent content in tutorial on Abhigyan Kishor</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 06 Aug 2022 00:14:16 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Aug 2022 00:14:16 +0300</lastBuildDate><atom:link href="https://abk171.github.io/site/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Percentage coverage of satellite imagery over region of interest</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</link>
+      <link>https://abk171.github.io/site/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</link>
       <pubDate>Sat, 06 Aug 2022 00:14:16 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/08/percentage-coverage-of-satellite-imagery-over-region-of-interest/</guid>
       <description>Earth Engine tricks: Satellite imagery coverage over a region of interest In my work with Google Earth Engine, over the last few months, I like to believe that I have learnt a few tricks to interact with it. I recently received a query about finding the percentage coverage of satellite imagery over a region of interest. In this post, I would like share a robust approach towards this problem.
 ~TLDR I use ee.</description>
     </item>
     
     <item>
       <title>Extending Fast(er) Downloads</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</link>
+      <link>https://abk171.github.io/site/posts/2022/06/extending-faster-downloads/</link>
       <pubDate>Fri, 24 Jun 2022 12:23:58 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/06/extending-faster-downloads/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/06/extending-faster-downloads/</guid>
       <description>Fast(er) downloads from Google Earth Engine: Tiling This series was inspired by this article by Noel Gorelick. I will try and apply his article for a more specific use case of downloading satellite imagery for a large region of interest. This article requires an understanding of the limitations of earth engine, particularly ee.Image.getDownloadURL(), because it is aimed at providing a work-around. Today we discuss the first step towards big downloads, tiling the region of interest.</description>
     </item>
     
     <item>
       <title>How to Custom Domain</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/how-to-custom-domain/</link>
       <pubDate>Fri, 06 May 2022 20:43:37 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/how-to-custom-domain/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/how-to-custom-domain/</guid>
       <description>So you want a custom domain name? Here is a step-by-step guide to how to get one (for free) from freenom. I use github pages to host my hugo website so the tutorial will focus on the relevant steps.
   Check availability of a domain name   In the search bar, type out the site name that you want, say example.com. It should give you a few alternatives such as shown in the picture.</description>
     </item>

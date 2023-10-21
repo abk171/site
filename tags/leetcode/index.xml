@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>leetcode on Abhigyan Kishor</title>
-    <link>https://www.abhigyankishor.ga/tags/leetcode/</link>
+    <link>https://abk171.github.io/site/tags/leetcode/</link>
     <description>Recent content in leetcode on Abhigyan Kishor</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 11 May 2022 18:54:28 +0300</lastBuildDate><atom:link href="https://www.abhigyankishor.ga/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 18:54:28 +0300</lastBuildDate><atom:link href="https://abk171.github.io/site/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode 1641</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-1641/</link>
       <pubDate>Wed, 11 May 2022 18:54:28 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1641/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-1641/</guid>
       <description>Count Sorted Vowel Strings Head on over here to try the problem for yourself.
 Hint says back-tracking, solutions say dynamic programming 😅.
 Back-tracking Algorithm The goal is to get all sorted combinations of the vowels for a string of length n. I set up a count variable outside the functions to ensure it stays out of scope for all the recursive calls. The helper() function recieves the previous index and remaining charaters.</description>
@@ -21,10 +21,10 @@ Back-tracking Algorithm The goal is to get all sorted combinations of the vowels
     
     <item>
       <title>Leetcode 216</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-216/</link>
       <pubDate>Tue, 10 May 2022 12:39:01 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-216/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-216/</guid>
       <description>Combination Sum III Head on over here to try the problem for yourself.
 Another permutation based problem solved using back-tracking.
 Algorithm The goal is to get all combinations (without repeat) of k integers from 1-9 whose sum is n. To achieve this, simply backtrack and decrement n with the current integer. Also, to ensure no repeats, pass in the next integer to the recursive call.
@@ -33,10 +33,10 @@ Code public List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; combinationSum3(int 
     
     <item>
       <title>Leetcode 17</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-17/</link>
       <pubDate>Mon, 09 May 2022 15:46:21 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-17/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-17/</guid>
       <description>Letter Combination of a Phone Number Head on over here to try the problem for yourself.
 Most permutation based problems seem to use a back-tracking solution, but don&amp;rsquo;t quote me on that 😅
 Algorithm The goal is to get all permutations of letters corresponding to a given phone number. First, we create a mapping of numbers and the corresponding letters. Then we simply set up a backtracking function helper() which will populate our result list with the required solutions.</description>
@@ -44,10 +44,10 @@ Algorithm The goal is to get all permutations of letters corresponding to a give
     
     <item>
       <title>Leetcode 341</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-341/</link>
       <pubDate>Sun, 08 May 2022 14:29:29 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-341/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-341/</guid>
       <description>Flatten Nested List Iterator Head on over here to try the problem for yourself.
 I spent way too long trying to figure out that they had already provided the NestedInteger interface XD. The solution is simply a recursion over the elements of nestedList.
 Algorithm The goal is to build an iterator over the provided nestedList. So we need to implement next() and hasNext() for the given nestedList. I approach this by converting the nestedList into an ArrayList.</description>
@@ -55,10 +55,10 @@ Algorithm The goal is to build an iterator over the provided nestedList. So we n
     
     <item>
       <title>Leetcode 456</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-456/</link>
       <pubDate>Sat, 07 May 2022 16:43:52 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-456/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-456/</guid>
       <description>132 Pattern Head on over here to try the problem for yourself.
 This one was so annoying :&amp;rsquo;(. I ended up following this tutorial for ironing out the final cases.
   Algorithm The goal is to maintain a descending monotonic stack to keep track of the minimum value present before each element in the stack. The ideal case is for the ith index to be as small as possible, the jth index to be as large as possible, and the kth index to be somewhere in between.</description>
@@ -66,10 +66,10 @@ This one was so annoying :&amp;rsquo;(. I ended up following this tutorial for i
     
     <item>
       <title>Leetcode 1209</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-1209/</link>
       <pubDate>Fri, 06 May 2022 12:49:34 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1209/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-1209/</guid>
       <description>Remove All Adjacent Duplicates in String II Head on over here to try to the problem for yourself.
 The problem requires a stack based solution.
 Algorithm The goal is the find the shortest string possible by removing k duplicated adjacent characters. A simple problem case is illustrated:
@@ -78,10 +78,10 @@ k = 2 s = &amp;#34;abbac&amp;#34; the result must be c. Iteration 1: remove bb =
     
     <item>
       <title>Leetcode 225</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-225/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-225/</link>
       <pubDate>Thu, 05 May 2022 15:39:24 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-225/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-225/</guid>
       <description>Implementing Stacks Using Queues Head on over here to try the problem for yourself.
 The solution talks about using 2 queues, which frankly I don&amp;rsquo;t understand :&amp;rsquo;). I used a single queue to implement this problem.
 Algorithm The goal is to implement a stack using the basic queue features provided such as push(), peek() and pop(). The easiest way to implement this is by inserting elements in reverse order. Then the queue will pop the elements like a stack.</description>
@@ -89,10 +89,10 @@ Algorithm The goal is to implement a stack using the basic queue features provid
     
     <item>
       <title>Leetcode 1769</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-1769/</link>
       <pubDate>Wed, 04 May 2022 14:27:17 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-1769/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-1769/</guid>
       <description>Max Number of K-sum Pairs Head on over here to try the problem for yourself.
 This is a varaition of the famous two-sum problem that we have all struggled with 😅
 Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of integers that sum up to given k. For this, we create a hashmap that stores unique values of the integers. Then we go over the keySet() and update the count according to the following rules:</description>
@@ -100,10 +100,10 @@ Algorithm &amp;amp; Code The slower O(n) The goal is the count unique pairs of i
     
     <item>
       <title>Leetcode 581</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-581/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-581/</link>
       <pubDate>Tue, 03 May 2022 17:10:04 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-581/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-581/</guid>
       <description>Shortest Unsorted Continuous Subarray Head on over here to try the problem for yourself.
 I solved this problem using a two-pointer method.
 Algorithm The goal is to find the points where the array becomes unsorted. We use two loops, one to find the end of the unsorted sub-array and another to find the start of the unsorted sub-array. start = end = -1 as a way to check if they were updated or not during the loops.</description>
@@ -111,10 +111,10 @@ Algorithm The goal is to find the points where the array becomes unsorted. We us
     
     <item>
       <title>Leetcode 905</title>
-      <link>https://www.abhigyankishor.ga/posts/2022/05/leetcode-905/</link>
+      <link>https://abk171.github.io/site/posts/2022/05/leetcode-905/</link>
       <pubDate>Mon, 02 May 2022 11:36:29 +0300</pubDate>
       
-      <guid>https://www.abhigyankishor.ga/posts/2022/05/leetcode-905/</guid>
+      <guid>https://abk171.github.io/site/posts/2022/05/leetcode-905/</guid>
       <description>Sort Array by Parity Head on over here to try the problem for yourself.
 I attempted a two-pointer approach to try and solve it.
 Algorithm The goal is to try to return the parity array in one pass. For this reason, I create a new array result[] and two pointers, evenPtr, pointing to the start of result[] and oddPtr, pointing to the end of result[]. Now I loop over the initial array.</description>
